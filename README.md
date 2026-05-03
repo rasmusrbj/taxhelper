@@ -83,6 +83,7 @@ taxhelper context "can I deduct transport to work?" --json --limit 3
 taxhelper related 51 --json
 taxhelper template --editable-only
 taxhelper fill-pdf values.json --output filled-04003.pdf
+taxhelper mcp
 taxhelper stats
 taxhelper show travel-deduction-2026
 taxhelper amounts --year 2026
@@ -187,6 +188,66 @@ Good agent workflow:
 - `related`: find rubrikker with overlapping tags.
 - `template`: generate a review/fill-out worksheet from rubrikker.
 - `stats`: inspect database coverage before answering.
+
+## MCP Server
+
+`taxhelper` includes a stdio MCP server for agents and desktop clients that
+support the Model Context Protocol.
+
+After installing and initializing:
+
+```bash
+taxhelper init
+taxhelper-mcp
+```
+
+Typical MCP client config:
+
+```json
+{
+  "mcpServers": {
+    "taxhelper": {
+      "command": "taxhelper-mcp",
+      "env": {
+        "TAX_HELPER_DB": "/absolute/path/to/tax_rules.sqlite"
+      }
+    }
+  }
+}
+```
+
+You can also run it through the main CLI:
+
+```json
+{
+  "mcpServers": {
+    "taxhelper": {
+      "command": "taxhelper",
+      "args": ["mcp", "--db", "/absolute/path/to/tax_rules.sqlite"]
+    }
+  }
+}
+```
+
+Read-only MCP tools are exposed by default:
+
+- `tax_lookup`
+- `tax_context`
+- `tax_search`
+- `tax_rubric`
+- `tax_related`
+- `tax_tags`
+- `tax_tagged`
+- `tax_template`
+- `tax_stats`
+
+The file-writing PDF tool is opt-in:
+
+```bash
+taxhelper-mcp --allow-write-tools
+```
+
+That exposes `tax_fill_pdf`, which requires an explicit `output_path`.
 
 ## Årsopgørelse Review Template
 

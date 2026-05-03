@@ -258,6 +258,14 @@ def build_parser() -> argparse.ArgumentParser:
     fill_pdf_parser.add_argument("--dpi", type=int, default=150, help="Rasterization DPI for the filled copy")
     fill_pdf_parser.set_defaults(func=cmd_fill_pdf)
 
+    mcp_parser = add_command("mcp", help="Run the taxhelper MCP stdio server")
+    mcp_parser.add_argument(
+        "--allow-write-tools",
+        action="store_true",
+        help="Expose MCP tools that can write files, such as PDF filling",
+    )
+    mcp_parser.set_defaults(func=cmd_mcp)
+
     stats_parser = add_command("stats", help="Show database coverage and tag statistics")
     stats_parser.set_defaults(func=cmd_stats)
 
@@ -981,6 +989,13 @@ def cmd_fill_pdf(args: argparse.Namespace) -> int:
         print_json(payload)
         return 0
     print_fill_pdf(payload)
+    return 0
+
+
+def cmd_mcp(args: argparse.Namespace) -> int:
+    from tax_helper.mcp_server import run_stdio_server
+
+    run_stdio_server(db_path=args.db, allow_write_tools=args.allow_write_tools)
     return 0
 
 

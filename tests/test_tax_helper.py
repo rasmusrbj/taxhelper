@@ -25,6 +25,7 @@ from tax_helper.db import (
     seed_db,
 )
 from tax_helper.importer import HTMLTextExtractor, clean_rubric_guide_body
+from tax_helper.mcp_server import TaxHelperMCPServer
 from tax_helper.pdf_fill import format_fill_value, load_fill_values, normalize_rubric_key
 from tax_helper.rubrics import fetch_bytes, parse_pdf_rubrics
 from tax_helper.tags import tag_rubric
@@ -36,6 +37,7 @@ class TaxHelperTests(unittest.TestCase):
         scripts = pyproject["project"]["scripts"]
         self.assertEqual(scripts["taxhelper"], "tax_helper.cli:main")
         self.assertEqual(scripts["tax-helper"], "tax_helper.cli:main")
+        self.assertEqual(scripts["taxhelper-mcp"], "tax_helper.mcp_server:main")
 
     def test_common_flags_work_after_subcommand_for_agents(self) -> None:
         args = build_parser().parse_args(["lookup", "field 417", "--db", "tax.sqlite", "--json"])
@@ -84,6 +86,12 @@ class TaxHelperTests(unittest.TestCase):
         self.assertEqual(args.output, Path("filled.pdf"))
         self.assertTrue(args.include_locked)
         self.assertTrue(args.json)
+
+    def test_mcp_parser_accepts_write_tool_flag(self) -> None:
+        args = build_parser().parse_args(["mcp", "--db", "tax.sqlite", "--allow-write-tools"])
+        self.assertEqual(args.command, "mcp")
+        self.assertEqual(args.db, Path("tax.sqlite"))
+        self.assertTrue(args.allow_write_tools)
 
     def test_init_parser_defaults_to_bootstrap_with_schema_escape_hatch(self) -> None:
         args = build_parser().parse_args(["init", "--offline", "--schema-only", "--json"])
@@ -287,6 +295,51 @@ blanket 04.072
         self.assertEqual(format_fill_value(True), "X")
         self.assertEqual(format_fill_value(False), "")
         self.assertEqual(format_fill_value(1234.0), "1234")
+
+    def test_mcp_initialize_and_tools_list(self) -> None:
+        server = TaxHelperMCPServer(db_path=Path("missing.sqlite"))
+        initialized = server.handle_message(
+            {
+                "jsonrpc": "2.0",
+                "id": 1,
+                "method": "initialize",
+                "params": {
+                    "protocolVersion": "2025-06-18",
+                    "capabilities": {},
+                    "clientInfo": {"name": "test", "version": "0"},
+                },
+            }
+        )
+        self.assertEqual(initialized["result"]["serverInfo"]["name"], "taxhelper")
+        tools = server.handle_message({"jsonrpc": "2.0", "id": 2, "method": "tools/list"})
+        tool_names = {tool["name"] for tool in tools["result"]["tools"]}
+        self.assertIn("tax_lookup", tool_names)
+        self.assertIn("tax_stats", tool_names)
+        self.assertNotIn("tax_fill_pdf", tool_names)
+
+    def test_mcp_write_tool_is_opt_in(self) -> None:
+        server = TaxHelperMCPServer(db_path=Path("missing.sqlite"), allow_write_tools=True)
+        tools = server.handle_message({"jsonrpc": "2.0", "id": 1, "method": "tools/list"})
+        tool_names = {tool["name"] for tool in tools["result"]["tools"]}
+        self.assertIn("tax_fill_pdf", tool_names)
+
+    def test_mcp_stats_tool_uses_sqlite_database(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            db_path = Path(tmpdir) / "tax.sqlite"
+            with closing(connect(db_path)) as conn:
+                init_db(conn)
+            server = TaxHelperMCPServer(db_path=db_path)
+            response = server.handle_message(
+                {
+                    "jsonrpc": "2.0",
+                    "id": 1,
+                    "method": "tools/call",
+                    "params": {"name": "tax_stats", "arguments": {}},
+                }
+            )
+        result = response["result"]
+        self.assertFalse(result["isError"])
+        self.assertEqual(result["structuredContent"]["counts"]["rubrics"], 0)
 
 
 if __name__ == "__main__":

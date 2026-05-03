@@ -29,6 +29,7 @@ Repository = "https://github.com/rasmusrbj/taxhelper"
 [project.scripts]
 taxhelper = "tax_helper.cli:main"
 tax-helper = "tax_helper.cli:main"
+taxhelper-mcp = "tax_helper.mcp_server:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

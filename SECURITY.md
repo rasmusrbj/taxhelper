@@ -33,6 +33,10 @@ tax returns into GitHub issues, pull requests, logs, screenshots, or examples.
 Generated PDFs and SQLite databases can contain personal tax information. Treat
 them as private files and do not commit them.
 
+The MCP server exposes read-only tools by default. File-writing tools, such as
+PDF filling, are only exposed when started with `--allow-write-tools`. MCP
+clients should still require human approval before invoking tools.
+
 ## Scope
 
 In scope:
