@@ -15,10 +15,11 @@ curl -fsSL https://raw.githubusercontent.com/rasmusrbj/taxhelper/main/install.sh
 taxhelper init
 ```
 
-The installer uses `pipx` and installs Poppler when it can. Poppler provides the
-`pdftotext`, `pdftohtml`, and `pdftocairo` tools used for PDF scraping/filling.
-It also installs the bundled `taxhelper` Agent Skill into Codex and Claude Code
-skill directories when possible. Restart those agent clients after installation.
+The raw curl installer uses `pipx`, installs Poppler when it can, and
+automatically installs or refreshes the bundled `taxhelper` Agent Skill for
+Codex and Claude Code. Poppler provides the `pdftotext`, `pdftohtml`, and
+`pdftocairo` tools used for PDF scraping/filling. Restart those agent clients
+after installation.
 
 Or install directly with `pipx`:
 
@@ -200,8 +201,8 @@ Good agent workflow:
 
 ## Agent Skill
 
-The install script automatically installs the bundled `taxhelper` Agent Skill
-for local agents that support `SKILL.md` folders:
+The raw curl installer automatically installs or refreshes the bundled
+`taxhelper` Agent Skill for local agents that support `SKILL.md` folders:
 
 - Codex: `~/.codex/skills/taxhelper`
 - Claude Code: `~/.claude/skills/taxhelper`

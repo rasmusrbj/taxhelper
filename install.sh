@@ -92,7 +92,7 @@ say "Installing taxhelper from $REPO_URL ..."
 run_pipx install --force "git+$REPO_URL"
 
 say "Installing taxhelper agent skill for Codex and Claude Code..."
-if ! run_taxhelper install-skills; then
+if ! run_taxhelper install-skills --force; then
   say "warning: could not auto-install the agent skill."
   say "Run 'taxhelper install-skills' after restarting your shell."
 fi
