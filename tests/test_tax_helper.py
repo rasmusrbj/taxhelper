@@ -148,9 +148,26 @@ class TaxHelperTests(unittest.TestCase):
         self.assertTrue(args.json)
 
     def test_default_db_path_prefers_project_database(self) -> None:
-        with tempfile.TemporaryDirectory() as tmpdir:
-            with patch("pathlib.Path.cwd", return_value=Path(tmpdir)):
-                self.assertEqual(default_db_path(), Path("tax_rules.sqlite").resolve())
+        with tempfile.TemporaryDirectory() as cwd_tmpdir, tempfile.TemporaryDirectory() as project_tmpdir:
+            cwd_path = Path(cwd_tmpdir)
+            project_path = Path(project_tmpdir)
+            project_db = project_path / "tax_rules.sqlite"
+            project_db.touch()
+            with (
+                patch("pathlib.Path.cwd", return_value=cwd_path),
+                patch("tax_helper.db.project_root", return_value=project_path),
+            ):
+                self.assertEqual(default_db_path(), project_db)
+
+    def test_default_db_path_falls_back_to_cwd_database(self) -> None:
+        with tempfile.TemporaryDirectory() as cwd_tmpdir, tempfile.TemporaryDirectory() as project_tmpdir:
+            cwd_path = Path(cwd_tmpdir)
+            project_path = Path(project_tmpdir)
+            with (
+                patch("pathlib.Path.cwd", return_value=cwd_path),
+                patch("tax_helper.db.project_root", return_value=project_path),
+            ):
+                self.assertEqual(default_db_path(), cwd_path / "tax_rules.sqlite")
 
     def test_default_data_path_falls_back_to_packaged_data(self) -> None:
         with tempfile.TemporaryDirectory() as tmpdir:
