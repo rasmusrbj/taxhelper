@@ -52,10 +52,14 @@ class TaxHelperTests(unittest.TestCase):
 
     def test_github_pages_site_contains_core_install_paths(self) -> None:
         page = Path("docs/index.html").read_text(encoding="utf-8")
+        script = Path("docs/app.js").read_text(encoding="utf-8")
         self.assertIn("taxhelper", page)
         self.assertIn("install.sh", page)
         self.assertIn("install.ps1", page)
         self.assertIn("taxhelper-mcp", page)
+        self.assertIn('data-set-lang="da"', page)
+        self.assertIn('data-copy-target="unix-install"', page)
+        self.assertIn("navigator.clipboard", script)
         self.assertTrue(Path("docs/assets/form-preview.png").exists())
 
     def test_common_flags_work_after_subcommand_for_agents(self) -> None:

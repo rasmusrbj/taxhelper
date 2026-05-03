@@ -16,64 +16,113 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://rasmusrbj.github.io/taxhelper/" />
     <meta property="og:image" content="https://rasmusrbj.github.io/taxhelper/assets/form-preview.png" />
-    <meta name="theme-color" content="#15342f" />
+    <meta name="theme-color" content="#18181b" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
   </head>
-  <body>
+  <body data-lang="en">
     <header class="site-header">
       <a class="brand" href="#top" aria-label="taxhelper home">
         <span class="brand-mark">th</span>
         <span>taxhelper</span>
       </a>
-      <nav aria-label="Main navigation">
-        <a href="#install">Install</a>
-        <a href="#features">Features</a>
-        <a href="#agents">Agents</a>
-        <a href="https://github.com/rasmusrbj/taxhelper">GitHub</a>
-      </nav>
+      <div class="header-actions">
+        <nav aria-label="Main navigation">
+          <a href="#install">Install</a>
+          <a href="#features">Features</a>
+          <a href="#agents">Agents</a>
+          <a href="https://github.com/rasmusrbj/taxhelper">GitHub</a>
+        </nav>
+        <div class="language-switch" aria-label="Language">
+          <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-set-lang="da" aria-pressed="false">DA</button>
+        </div>
+      </div>
     </header>
 
     <main id="top">
       <section class="hero">
         <div class="hero-media" aria-hidden="true"></div>
         <div class="hero-content">
-          <p class="eyebrow">Danish tax return research, locally</p>
+          <p class="eyebrow">
+            <span class="lang-en">Local Danish tax return lookup</span>
+            <span class="lang-da">Lokalt opslag i dansk årsopgørelse</span>
+          </p>
           <h1>taxhelper</h1>
           <p class="lede">
-            A free, open-source CLI and MCP server for looking up Danish
-            <span lang="da">årsopgørelse</span> rubrikker, official Skat guidance,
-            tags, source links, and PDF review workflows in a local SQLite database.
+            <span class="lang-en">
+              A small open-source CLI and MCP server for searching Danish
+              <span lang="da">årsopgørelse</span> rubrikker, Skat guidance, source
+              links, tags, and PDF review workflows in local SQLite.
+            </span>
+            <span class="lang-da" lang="da">
+              Et lille open-source CLI og MCP server til opslag i rubrikker,
+              Skat-vejledning, kildehenvisninger, tags og PDF-review i lokal SQLite.
+            </span>
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#install">Install</a>
-            <a class="button secondary" href="https://github.com/rasmusrbj/taxhelper">View on GitHub</a>
+            <a class="button primary" href="#install">
+              <span class="lang-en">Install</span>
+              <span class="lang-da">Installer</span>
+            </a>
+            <a class="button secondary" href="https://github.com/rasmusrbj/taxhelper">GitHub</a>
           </div>
           <div class="quick-command" aria-label="Install command for macOS and Linux">
-            <span>macOS/Linux</span>
-            <code>curl -fsSL https://raw.githubusercontent.com/rasmusrbj/taxhelper/main/install.sh | sh</code>
+            <div class="command-head">
+              <span>macOS/Linux</span>
+              <button class="copy-button" type="button" data-copy-target="hero-install">
+                <span class="lang-en">Copy</span>
+                <span class="lang-da">Kopiér</span>
+              </button>
+            </div>
+            <code id="hero-install">curl -fsSL https://raw.githubusercontent.com/rasmusrbj/taxhelper/main/install.sh | sh</code>
           </div>
         </div>
       </section>
 
       <section id="install" class="section install-section">
         <div class="section-heading">
-          <p class="eyebrow">Install</p>
-          <h2>One command, local data</h2>
+          <p class="eyebrow">
+            <span class="lang-en">Install</span>
+            <span class="lang-da">Installation</span>
+          </p>
+          <h2>
+            <span class="lang-en">Install with one command</span>
+            <span class="lang-da">Installer med én kommando</span>
+          </h2>
           <p>
-            The installer uses <code>pipx</code>, refreshes the Agent Skill for
-            Codex and Claude Code, and tries to install Poppler for PDF extraction.
+            <span class="lang-en">
+              The installer uses <code>pipx</code>, refreshes the Agent Skill for
+              Codex and Claude Code, and tries to install Poppler for PDF extraction.
+            </span>
+            <span class="lang-da" lang="da">
+              Installeren bruger <code>pipx</code>, opdaterer Agent Skill til
+              Codex og Claude Code og forsøger at installere Poppler til PDF-udtræk.
+            </span>
           </p>
         </div>
         <div class="install-grid">
           <article class="command-panel">
-            <h3>macOS/Linux</h3>
-            <pre><code>curl -fsSL https://raw.githubusercontent.com/rasmusrbj/taxhelper/main/install.sh | sh
+            <div class="command-head">
+              <h3>macOS/Linux</h3>
+              <button class="copy-button" type="button" data-copy-target="unix-install">
+                <span class="lang-en">Copy</span>
+                <span class="lang-da">Kopiér</span>
+              </button>
+            </div>
+            <pre><code id="unix-install">curl -fsSL https://raw.githubusercontent.com/rasmusrbj/taxhelper/main/install.sh | sh
 taxhelper init
 taxhelper lookup "field 417"</code></pre>
           </article>
           <article class="command-panel">
-            <h3>Windows PowerShell</h3>
-            <pre><code>irm https://raw.githubusercontent.com/rasmusrbj/taxhelper/main/install.ps1 | iex
+            <div class="command-head">
+              <h3>Windows PowerShell</h3>
+              <button class="copy-button" type="button" data-copy-target="windows-install">
+                <span class="lang-en">Copy</span>
+                <span class="lang-da">Kopiér</span>
+              </button>
+            </div>
+            <pre><code id="windows-install">irm https://raw.githubusercontent.com/rasmusrbj/taxhelper/main/install.ps1 | iex
 taxhelper init
 taxhelper lookup "field 417"</code></pre>
           </article>
@@ -82,36 +131,77 @@ taxhelper lookup "field 417"</code></pre>
 
       <section id="features" class="section feature-section">
         <div class="section-heading compact">
-          <p class="eyebrow">What it does</p>
-          <h2>Search rubrikker, tags, official sources, and review templates</h2>
+          <p class="eyebrow">
+            <span class="lang-en">Core workflow</span>
+            <span class="lang-da">Workflow</span>
+          </p>
+          <h2>
+            <span class="lang-en">Search, inspect, and prepare a review</span>
+            <span class="lang-da">Søg, gennemgå og forbered review</span>
+          </h2>
         </div>
         <div class="feature-grid">
           <article>
-            <h3>SQLite-backed lookup</h3>
+            <h3>
+              <span class="lang-en">SQLite-backed lookup</span>
+              <span class="lang-da">SQLite-baseret opslag</span>
+            </h3>
             <p>
-              Bootstrap a local <code>tax_rules.sqlite</code> database with rubrikker,
-              structured seed rules, official source pages, FTS search, and tags.
+              <span class="lang-en">
+                Bootstrap a local <code>tax_rules.sqlite</code> database with rubrikker,
+                structured seed rules, official source pages, FTS search, and tags.
+              </span>
+              <span class="lang-da" lang="da">
+                Opret en lokal <code>tax_rules.sqlite</code> database med rubrikker,
+                seed-regler, officielle kilder, FTS-søgning og tags.
+              </span>
             </p>
           </article>
           <article>
-            <h3>Rubrik and felt search</h3>
+            <h3>
+              <span class="lang-en">Rubrik and felt search</span>
+              <span class="lang-da">Søg i rubrik og felt</span>
+            </h3>
             <p>
-              Resolve natural language, rubrik numbers, and field numbers into
-              source-linked context for Danish annual tax assessment review.
+              <span class="lang-en">
+                Resolve natural language, rubrik numbers, and field numbers into
+                source-linked context for Danish annual tax assessment review.
+              </span>
+              <span class="lang-da" lang="da">
+                Slå naturligt sprog, rubriknumre og feltnumre op med kildehenvisninger.
+              </span>
             </p>
           </article>
           <article>
-            <h3>PDF review workflow</h3>
+            <h3>
+              <span class="lang-en">PDF review workflow</span>
+              <span class="lang-da">PDF-review</span>
+            </h3>
             <p>
-              Generate a worksheet or fill a local copy of the official 04.003
-              <span lang="da">Oplysningsskemaet</span> PDF from explicit JSON values.
+              <span class="lang-en">
+                Generate a worksheet or fill a local copy of the official 04.003
+                <span lang="da">Oplysningsskemaet</span> PDF from explicit JSON values.
+              </span>
+              <span class="lang-da" lang="da">
+                Generér en tjekliste eller udfyld en lokal kopi af 04.003 PDF'en
+                fra eksplicitte JSON-værdier.
+              </span>
             </p>
           </article>
           <article>
-            <h3>Agent-ready JSON</h3>
+            <h3>
+              <span class="lang-en">Agent-ready JSON</span>
+              <span class="lang-da">JSON til agenter</span>
+            </h3>
             <p>
-              Use stable <code>--json</code> output for retrieval workflows,
-              context gathering, templates, stats, and source-linked explanations.
+              <span class="lang-en">
+                Use stable <code>--json</code> output for retrieval workflows,
+                context gathering, templates, stats, and source-linked explanations.
+              </span>
+              <span class="lang-da" lang="da">
+                Brug stabilt <code>--json</code> output til context, templates,
+                statistik og kildebaserede forklaringer.
+              </span>
             </p>
           </article>
         </div>
@@ -119,16 +209,35 @@ taxhelper lookup "field 417"</code></pre>
 
       <section id="agents" class="section agents-section">
         <div class="agent-copy">
-          <p class="eyebrow">Agents and MCP</p>
-          <h2>Built for Codex, Claude Code, and MCP clients</h2>
+          <p class="eyebrow">
+            <span class="lang-en">Agents and MCP</span>
+            <span class="lang-da">Agenter og MCP</span>
+          </p>
+          <h2>
+            <span class="lang-en">Built for Codex, Claude Code, and MCP clients</span>
+            <span class="lang-da">Bygget til Codex, Claude Code og MCP-klienter</span>
+          </h2>
           <p>
-            <code>taxhelper</code> includes a stdio MCP server and an Agent Skill
-            that tells coding agents how to use read-only lookup tools before
-            answering tax return questions.
+            <span class="lang-en">
+              <code>taxhelper</code> includes a stdio MCP server and an Agent Skill
+              that tells coding agents how to use read-only lookup tools before
+              answering tax return questions.
+            </span>
+            <span class="lang-da" lang="da">
+              <code>taxhelper</code> har en stdio MCP server og en Agent Skill,
+              så agenter kan bruge read-only opslag før de svarer.
+            </span>
           </p>
         </div>
         <div class="terminal-panel">
-          <pre><code>taxhelper-mcp
+          <div class="command-head">
+            <span>MCP</span>
+            <button class="copy-button" type="button" data-copy-target="mcp-command">
+              <span class="lang-en">Copy</span>
+              <span class="lang-da">Kopiér</span>
+            </button>
+          </div>
+          <pre><code id="mcp-command">taxhelper-mcp
 taxhelper mcp
 taxhelper install-skills --force
 taxhelper context "can I deduct transport to work?" --json</code></pre>
@@ -137,13 +246,26 @@ taxhelper context "can I deduct transport to work?" --json</code></pre>
 
       <section class="section disclaimer-section">
         <div>
-          <p class="eyebrow">Own-risk notice</p>
-          <h2>Research support, not tax advice</h2>
+          <p class="eyebrow">
+            <span class="lang-en">Own-risk notice</span>
+            <span class="lang-da">Brug på eget ansvar</span>
+          </p>
+          <h2>
+            <span class="lang-en">Research support, not tax advice</span>
+            <span class="lang-da">Researchhjælp, ikke skatterådgivning</span>
+          </h2>
         </div>
         <p>
-          This project does not file tax returns and does not provide tax, legal,
-          accounting, financial, or professional advice. Verify all output against
-          official sources and use the project entirely at your own risk.
+          <span class="lang-en">
+            This project does not file tax returns and does not provide tax, legal,
+            accounting, financial, or professional advice. Verify all output against
+            official sources and use the project entirely at your own risk.
+          </span>
+          <span class="lang-da" lang="da">
+            Projektet indsender ikke skatteoplysninger og er ikke skattemæssig,
+            juridisk, økonomisk eller professionel rådgivning. Tjek altid mod
+            officielle kilder og brug værktøjet på eget ansvar.
+          </span>
         </p>
       </section>
     </main>
