@@ -51,6 +51,7 @@ from tax_helper.rubrics import (
     fetch_bytes,
     scrape_rubrics,
 )
+from tax_helper.skill_install import DEFAULT_TARGETS, SUPPORTED_TARGETS, install_skill_bundle
 from tax_helper.tags import canonical_tag
 
 
@@ -266,6 +267,30 @@ def build_parser() -> argparse.ArgumentParser:
     )
     mcp_parser.set_defaults(func=cmd_mcp)
 
+    install_skills_parser = add_command(
+        "install-skills",
+        help="Install the bundled Agent Skill for Codex, Claude Code, and custom skill roots",
+    )
+    install_skills_parser.add_argument(
+        "--target",
+        action="append",
+        choices=("all", *SUPPORTED_TARGETS),
+        help="Skill host to install into; repeat for multiple targets",
+    )
+    install_skills_parser.add_argument(
+        "--path",
+        action="append",
+        default=[],
+        type=Path,
+        help="Custom skills root directory, for example ~/.agents/skills",
+    )
+    install_skills_parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Replace an existing taxhelper skill directory",
+    )
+    install_skills_parser.set_defaults(func=cmd_install_skills)
+
     stats_parser = add_command("stats", help="Show database coverage and tag statistics")
     stats_parser.set_defaults(func=cmd_stats)
 
@@ -412,6 +437,35 @@ def cmd_seed(args: argparse.Namespace) -> int:
         source_count, rule_count = seed_db(conn, args.seed)
     print(f"seeded {rule_count} rules and {source_count} source documents into {args.db}")
     return 0
+
+
+def cmd_install_skills(args: argparse.Namespace) -> int:
+    targets = normalize_skill_targets(args.target)
+    results = install_skill_bundle(targets=targets, custom_roots=args.path, force=args.force)
+    payload = {
+        "ok": True,
+        "skill": "taxhelper",
+        "results": [result.to_dict() for result in results],
+    }
+    if args.json:
+        print_json(payload)
+        return 0
+    print("taxhelper agent skill")
+    for result in results:
+        status = "installed" if result.installed else f"skipped: {result.skipped_reason}"
+        print(f"- {result.target}: {result.path} ({status})")
+    print("Restart Codex or Claude Code after installing new skills.")
+    return 0
+
+
+def normalize_skill_targets(raw_targets: list[str] | None) -> tuple[str, ...]:
+    if not raw_targets or "all" in raw_targets:
+        return DEFAULT_TARGETS
+    targets: list[str] = []
+    for target in raw_targets:
+        if target not in targets:
+            targets.append(target)
+    return tuple(targets)
 
 
 def cmd_rebuild_fts(args: argparse.Namespace) -> int:

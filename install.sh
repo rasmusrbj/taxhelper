@@ -46,6 +46,18 @@ run_pipx() {
   fi
 }
 
+run_taxhelper() {
+  if have taxhelper; then
+    taxhelper "$@"
+  elif [ -n "${PIPX_BIN_DIR:-}" ] && [ -x "${PIPX_BIN_DIR}/taxhelper" ]; then
+    "${PIPX_BIN_DIR}/taxhelper" "$@"
+  elif [ -x "$HOME/.local/bin/taxhelper" ]; then
+    "$HOME/.local/bin/taxhelper" "$@"
+  else
+    return 127
+  fi
+}
+
 missing_poppler=""
 for tool in pdftotext pdftohtml pdftocairo; do
   if ! have "$tool"; then
@@ -78,6 +90,12 @@ fi
 
 say "Installing taxhelper from $REPO_URL ..."
 run_pipx install --force "git+$REPO_URL"
+
+say "Installing taxhelper agent skill for Codex and Claude Code..."
+if ! run_taxhelper install-skills; then
+  say "warning: could not auto-install the agent skill."
+  say "Run 'taxhelper install-skills' after restarting your shell."
+fi
 
 say ""
 say "taxhelper installed."

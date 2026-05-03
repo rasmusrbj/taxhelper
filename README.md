@@ -17,11 +17,14 @@ taxhelper init
 
 The installer uses `pipx` and installs Poppler when it can. Poppler provides the
 `pdftotext`, `pdftohtml`, and `pdftocairo` tools used for PDF scraping/filling.
+It also installs the bundled `taxhelper` Agent Skill into Codex and Claude Code
+skill directories when possible. Restart those agent clients after installation.
 
 Or install directly with `pipx`:
 
 ```bash
 pipx install git+https://github.com/rasmusrbj/taxhelper.git
+taxhelper install-skills
 taxhelper init
 ```
 
@@ -89,6 +92,7 @@ taxhelper related 51 --json
 taxhelper template --editable-only
 taxhelper fill-pdf values.json --output filled-04003.pdf
 taxhelper mcp
+taxhelper install-skills
 taxhelper stats
 taxhelper show travel-deduction-2026
 taxhelper amounts --year 2026
@@ -193,6 +197,25 @@ Good agent workflow:
 - `related`: find rubrikker with overlapping tags.
 - `template`: generate a review/fill-out worksheet from rubrikker.
 - `stats`: inspect database coverage before answering.
+
+## Agent Skill
+
+The install script automatically installs the bundled `taxhelper` Agent Skill
+for local agents that support `SKILL.md` folders:
+
+- Codex: `~/.codex/skills/taxhelper`
+- Claude Code: `~/.claude/skills/taxhelper`
+
+Install or refresh it manually:
+
+```bash
+taxhelper install-skills
+taxhelper install-skills --force
+taxhelper install-skills --target codex
+taxhelper install-skills --path ~/.agents/skills
+```
+
+Restart your agent client after installing new skills.
 
 ## MCP Server
 

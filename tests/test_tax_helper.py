@@ -28,6 +28,7 @@ from tax_helper.importer import HTMLTextExtractor, clean_rubric_guide_body
 from tax_helper.mcp_server import TaxHelperMCPServer
 from tax_helper.pdf_fill import format_fill_value, load_fill_values, normalize_rubric_key
 from tax_helper.rubrics import fetch_bytes, parse_pdf_rubrics
+from tax_helper.skill_install import install_skill_bundle
 from tax_helper.tags import tag_rubric
 
 
@@ -93,6 +94,26 @@ class TaxHelperTests(unittest.TestCase):
         self.assertEqual(args.db, Path("tax.sqlite"))
         self.assertTrue(args.allow_write_tools)
 
+    def test_install_skills_parser_accepts_targets_and_custom_path(self) -> None:
+        args = build_parser().parse_args(
+            [
+                "install-skills",
+                "--target",
+                "codex",
+                "--target",
+                "claude",
+                "--path",
+                "custom-skills",
+                "--force",
+                "--json",
+            ]
+        )
+        self.assertEqual(args.command, "install-skills")
+        self.assertEqual(args.target, ["codex", "claude"])
+        self.assertEqual(args.path, [Path("custom-skills")])
+        self.assertTrue(args.force)
+        self.assertTrue(args.json)
+
     def test_init_parser_defaults_to_bootstrap_with_schema_escape_hatch(self) -> None:
         args = build_parser().parse_args(["init", "--offline", "--schema-only", "--json"])
         self.assertEqual(args.command, "init")
@@ -116,6 +137,17 @@ class TaxHelperTests(unittest.TestCase):
                 path = default_data_path("seed_rules.json")
         self.assertTrue(path.exists())
         self.assertIn("tax_helper", str(path))
+
+    def test_install_skill_bundle_copies_bundled_skill_without_overwrite(self) -> None:
+        with tempfile.TemporaryDirectory() as tmpdir:
+            root = Path(tmpdir) / "skills"
+            first = install_skill_bundle(targets=(), custom_roots=[root])
+            second = install_skill_bundle(targets=(), custom_roots=[root])
+            skill_path = root / "taxhelper" / "SKILL.md"
+            self.assertTrue(first[0].installed)
+            self.assertFalse(second[0].installed)
+            self.assertTrue(skill_path.exists())
+            self.assertIn("name: taxhelper", skill_path.read_text(encoding="utf-8"))
 
     def test_seeded_search_finds_commuting_field(self) -> None:
         with tempfile.TemporaryDirectory() as tmpdir:

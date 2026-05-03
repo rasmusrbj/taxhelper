@@ -35,6 +35,7 @@ taxhelper-mcp = "tax_helper.mcp_server:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
+"tax_helper" = ["skills/taxhelper/SKILL.md", "skills/taxhelper/agents/openai.yaml"]
 "tax_helper.data" = ["*.json", "*.pdf"]
 
 [tool.ruff]

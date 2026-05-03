@@ -1,0 +1,6 @@
+interface:
+  display_name: "Tax Helper"
+  short_description: "Look up Danish tax rubrics and sources"
+  default_prompt: "Use $taxhelper to answer this Danish årsopgørelse question with source-linked lookup context."
+policy:
+  allow_implicit_invocation: true
