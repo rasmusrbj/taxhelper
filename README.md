@@ -5,6 +5,8 @@ notices (`årsopgørelse`). It stores structured rules, official source pages, a
 search indexes in SQLite. It can also generate a review worksheet and fill a
 copy of the official `04.003 Oplysningsskemaet` PDF from JSON values.
 
+Website: <https://rasmusrbj.github.io/taxhelper/>
+
 This is a research and lookup tool. It does not file, calculate, or optimize a
 tax return, and it should not be treated as tax advice.
 

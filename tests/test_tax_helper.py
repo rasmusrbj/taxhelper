@@ -50,6 +50,14 @@ class TaxHelperTests(unittest.TestCase):
         self.assertIn("Invoke-Pipx install --force", installer)
         self.assertIn("install-skills --force", installer)
 
+    def test_github_pages_site_contains_core_install_paths(self) -> None:
+        page = Path("docs/index.html").read_text(encoding="utf-8")
+        self.assertIn("taxhelper", page)
+        self.assertIn("install.sh", page)
+        self.assertIn("install.ps1", page)
+        self.assertIn("taxhelper-mcp", page)
+        self.assertTrue(Path("docs/assets/form-preview.png").exists())
+
     def test_common_flags_work_after_subcommand_for_agents(self) -> None:
         args = build_parser().parse_args(["lookup", "field 417", "--db", "tax.sqlite", "--json"])
         self.assertEqual(args.db, Path("tax.sqlite"))

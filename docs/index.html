@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>taxhelper | Danish årsopgørelse CLI and MCP server</title>
+    <meta
+      name="description"
+      content="A local SQLite CLI and MCP server for understanding Danish årsopgørelse rubrikker, official Skat guidance, and PDF review workflows."
+    />
+    <meta property="og:title" content="taxhelper" />
+    <meta
+      property="og:description"
+      content="Local SQLite CLI and MCP server for Danish årsopgørelse lookup, rubric search, Agent Skills, and PDF review workflows."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rasmusrbj.github.io/taxhelper/" />
+    <meta property="og:image" content="https://rasmusrbj.github.io/taxhelper/assets/form-preview.png" />
+    <meta name="theme-color" content="#15342f" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="taxhelper home">
+        <span class="brand-mark">th</span>
+        <span>taxhelper</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#install">Install</a>
+        <a href="#features">Features</a>
+        <a href="#agents">Agents</a>
+        <a href="https://github.com/rasmusrbj/taxhelper">GitHub</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-media" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Danish tax return research, locally</p>
+          <h1>taxhelper</h1>
+          <p class="lede">
+            A free, open-source CLI and MCP server for looking up Danish
+            <span lang="da">årsopgørelse</span> rubrikker, official Skat guidance,
+            tags, source links, and PDF review workflows in a local SQLite database.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#install">Install</a>
+            <a class="button secondary" href="https://github.com/rasmusrbj/taxhelper">View on GitHub</a>
+          </div>
+          <div class="quick-command" aria-label="Install command for macOS and Linux">
+            <span>macOS/Linux</span>
+            <code>curl -fsSL https://raw.githubusercontent.com/rasmusrbj/taxhelper/main/install.sh | sh</code>
+          </div>
+        </div>
+      </section>
+
+      <section id="install" class="section install-section">
+        <div class="section-heading">
+          <p class="eyebrow">Install</p>
+          <h2>One command, local data</h2>
+          <p>
+            The installer uses <code>pipx</code>, refreshes the Agent Skill for
+            Codex and Claude Code, and tries to install Poppler for PDF extraction.
+          </p>
+        </div>
+        <div class="install-grid">
+          <article class="command-panel">
+            <h3>macOS/Linux</h3>
+            <pre><code>curl -fsSL https://raw.githubusercontent.com/rasmusrbj/taxhelper/main/install.sh | sh
+taxhelper init
+taxhelper lookup "field 417"</code></pre>
+          </article>
+          <article class="command-panel">
+            <h3>Windows PowerShell</h3>
+            <pre><code>irm https://raw.githubusercontent.com/rasmusrbj/taxhelper/main/install.ps1 | iex
+taxhelper init
+taxhelper lookup "field 417"</code></pre>
+          </article>
+        </div>
+      </section>
+
+      <section id="features" class="section feature-section">
+        <div class="section-heading compact">
+          <p class="eyebrow">What it does</p>
+          <h2>Search rubrikker, tags, official sources, and review templates</h2>
+        </div>
+        <div class="feature-grid">
+          <article>
+            <h3>SQLite-backed lookup</h3>
+            <p>
+              Bootstrap a local <code>tax_rules.sqlite</code> database with rubrikker,
+              structured seed rules, official source pages, FTS search, and tags.
+            </p>
+          </article>
+          <article>
+            <h3>Rubrik and felt search</h3>
+            <p>
+              Resolve natural language, rubrik numbers, and field numbers into
+              source-linked context for Danish annual tax assessment review.
+            </p>
+          </article>
+          <article>
+            <h3>PDF review workflow</h3>
+            <p>
+              Generate a worksheet or fill a local copy of the official 04.003
+              <span lang="da">Oplysningsskemaet</span> PDF from explicit JSON values.
+            </p>
+          </article>
+          <article>
+            <h3>Agent-ready JSON</h3>
+            <p>
+              Use stable <code>--json</code> output for retrieval workflows,
+              context gathering, templates, stats, and source-linked explanations.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="agents" class="section agents-section">
+        <div class="agent-copy">
+          <p class="eyebrow">Agents and MCP</p>
+          <h2>Built for Codex, Claude Code, and MCP clients</h2>
+          <p>
+            <code>taxhelper</code> includes a stdio MCP server and an Agent Skill
+            that tells coding agents how to use read-only lookup tools before
+            answering tax return questions.
+          </p>
+        </div>
+        <div class="terminal-panel">
+          <pre><code>taxhelper-mcp
+taxhelper mcp
+taxhelper install-skills --force
+taxhelper context "can I deduct transport to work?" --json</code></pre>
+        </div>
+      </section>
+
+      <section class="section disclaimer-section">
+        <div>
+          <p class="eyebrow">Own-risk notice</p>
+          <h2>Research support, not tax advice</h2>
+        </div>
+        <p>
+          This project does not file tax returns and does not provide tax, legal,
+          accounting, financial, or professional advice. Verify all output against
+          official sources and use the project entirely at your own risk.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>MIT licensed code.</span>
+      <a href="https://github.com/rasmusrbj/taxhelper/blob/main/DISCLAIMER.md">Disclaimer</a>
+      <a href="https://github.com/rasmusrbj/taxhelper/blob/main/SECURITY.md">Security</a>
+      <a href="https://github.com/rasmusrbj/taxhelper">GitHub</a>
+    </footer>
+  </body>
+</html>
