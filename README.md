@@ -8,6 +8,24 @@ copy of the official `04.003 Oplysningsskemaet` PDF from JSON values.
 This is a research and lookup tool. It does not file, calculate, or optimize a
 tax return, and it should not be treated as tax advice.
 
+## Use At Your Own Risk
+
+Use `taxhelper` entirely at your own risk. The project is provided for
+convenience and research only, without any warranty or guarantee that the data,
+parsing, tags, examples, templates, generated PDFs, CLI output, or agent/MCP
+responses are correct, complete, current, or suitable for your situation.
+
+You are solely responsible for verifying all output against official sources,
+reviewing any generated documents, protecting any personal tax data you create,
+and deciding what, if anything, to submit through official channels. Mistakes in
+tax filings can have financial or legal consequences, including reassessments,
+interest, penalties, or missed deductions. Consult Skattestyrelsen, official
+guidance, or a qualified professional before relying on anything important.
+
+To the maximum extent permitted by law, the maintainers and contributors are not
+liable for losses, damages, penalties, tax consequences, data exposure, or other
+claims arising from use of this project. See `DISCLAIMER.md` and `LICENSE`.
+
 ## Install
 
 ```bash
@@ -366,8 +384,8 @@ Skattestyrelsen materials kept with source URLs for traceability; see `NOTICE`.
 Project policies:
 
 - `LICENSE`: MIT license for the code, including warranty/liability waiver.
-- `DISCLAIMER.md`: no tax/legal/financial advice, no filing, no accuracy
-  guarantee.
+- `DISCLAIMER.md`: own-risk notice, no tax/legal/financial advice, no filing,
+  no accuracy guarantee, and liability limitation.
 - `SECURITY.md`: private vulnerability reporting and data-safety guidance.
 - `SUPPORT.md`: where to get technical help and what support is out of scope.
 - `CODE_OF_CONDUCT.md`: participation rules for the public repository.

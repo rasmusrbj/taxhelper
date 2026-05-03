@@ -14,6 +14,23 @@ You are responsible for checking official sources, verifying calculations,
 reviewing generated documents, and deciding what to submit through official
 channels.
 
+## Use At Your Own Risk
+
+Use this project entirely at your own risk. The software, bundled source
+material, fetched source material, SQLite database, generated worksheets,
+filled PDFs, search results, tags, examples, MCP tools, Agent Skill instructions,
+and explanations may be wrong, incomplete, stale, misparsed, unavailable, or
+unsuitable for your situation.
+
+You are solely responsible for any action you take or do not take based on the
+project. This includes protecting personal tax data, validating official field
+numbers and rates, checking generated documents, deciding what to submit, and
+handling any tax consequence, reassessment, interest, penalty, missed deduction,
+or other outcome.
+
+Do not rely on this project as a substitute for Skattestyrelsen, official legal
+sources, TastSelv, MitID, or advice from a qualified professional.
+
 ## No Filing Or Representation
 
 `taxhelper` does not file tax returns, submit forms, authenticate with TastSelv,
@@ -47,6 +64,7 @@ The software is provided "as is" and "as available" without warranties of any
 kind, including warranties of accuracy, fitness for a particular purpose,
 merchantability, non-infringement, or availability. To the maximum extent
 permitted by law, contributors are not liable for any loss, tax consequence,
-penalty, damages, or other claim arising from use of the project.
+penalty, reassessment, interest, missed deduction, data exposure, damages, or
+other claim arising from use of, inability to use, or reliance on the project.
 
 The MIT License in `LICENSE` contains the binding license terms for the code.
