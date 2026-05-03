@@ -42,6 +42,14 @@ class TaxHelperTests(unittest.TestCase):
         self.assertEqual(scripts["tax-helper"], "tax_helper.cli:main")
         self.assertEqual(scripts["taxhelper-mcp"], "tax_helper.mcp_server:main")
 
+    def test_windows_installer_and_readme_guidance_exist(self) -> None:
+        installer = Path("install.ps1").read_text(encoding="utf-8")
+        readme = Path("README.md").read_text(encoding="utf-8")
+        self.assertIn("install.ps1", readme)
+        self.assertIn("irm https://raw.githubusercontent.com/rasmusrbj/taxhelper/main/install.ps1 | iex", readme)
+        self.assertIn("Invoke-Pipx install --force", installer)
+        self.assertIn("install-skills --force", installer)
+
     def test_common_flags_work_after_subcommand_for_agents(self) -> None:
         args = build_parser().parse_args(["lookup", "field 417", "--db", "tax.sqlite", "--json"])
         self.assertEqual(args.db, Path("tax.sqlite"))

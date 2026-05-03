@@ -568,9 +568,19 @@ def resolve_taxhelper_command() -> str | None:
     candidates: list[str | None] = [
         shutil.which("taxhelper"),
         sys.argv[0] if sys.argv and Path(sys.argv[0]).name.startswith("taxhelper") else None,
-        str(Path(os.environ["PIPX_BIN_DIR"]) / "taxhelper") if os.environ.get("PIPX_BIN_DIR") else None,
-        str(Path.home() / ".local" / "bin" / "taxhelper"),
     ]
+    search_roots = []
+    if os.environ.get("PIPX_BIN_DIR"):
+        search_roots.append(Path(os.environ["PIPX_BIN_DIR"]))
+    search_roots.append(Path.home() / ".local" / "bin")
+    if os.name == "nt" and os.environ.get("APPDATA"):
+        appdata_python = Path(os.environ["APPDATA"]) / "Python"
+        search_roots.append(appdata_python / "Scripts")
+        search_roots.extend(path / "Scripts" for path in appdata_python.glob("Python*"))
+    candidate_names = ["taxhelper.exe", "taxhelper.cmd", "taxhelper"] if os.name == "nt" else ["taxhelper"]
+    for root in search_roots:
+        for name in candidate_names:
+            candidates.append(str(root / name))
     for candidate in candidates:
         if candidate and Path(candidate).expanduser().is_file():
             return str(Path(candidate).expanduser())
@@ -598,6 +608,8 @@ def run_external_command(command: list[str], *, capture_output: bool) -> dict[st
 
 
 def format_command(command: list[str]) -> str:
+    if os.name == "nt":
+        return subprocess.list2cmdline(command)
     return shlex.join(command)
 
 

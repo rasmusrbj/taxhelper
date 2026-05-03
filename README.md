@@ -28,17 +28,26 @@ claims arising from use of this project. See `DISCLAIMER.md` and `LICENSE`.
 
 ## Install
 
+macOS/Linux:
+
 ```bash
 curl -fsSL https://raw.githubusercontent.com/rasmusrbj/taxhelper/main/install.sh | sh
 taxhelper init
 taxhelper --version
 ```
 
-The raw curl installer uses `pipx`, installs Poppler when it can, and
-automatically installs or refreshes the bundled `taxhelper` Agent Skill for
-Codex and Claude Code. Poppler provides the `pdftotext`, `pdftohtml`, and
-`pdftocairo` tools used for PDF scraping/filling. Restart those agent clients
-after installation.
+Windows PowerShell:
+
+```powershell
+irm https://raw.githubusercontent.com/rasmusrbj/taxhelper/main/install.ps1 | iex
+taxhelper init
+taxhelper --version
+```
+
+The raw installers use `pipx`, install Poppler when they can, and automatically
+install or refresh the bundled `taxhelper` Agent Skill for Codex and Claude
+Code. Poppler provides the `pdftotext`, `pdftohtml`, and `pdftocairo` tools used
+for PDF scraping/filling. Restart those agent clients after installation.
 
 Or install directly with `pipx`:
 
@@ -58,6 +67,38 @@ or on Debian/Ubuntu:
 
 ```bash
 sudo apt-get install poppler-utils
+```
+
+On Windows, the PowerShell installer tries `winget`, `choco`, or `scoop` for
+Poppler. If those are unavailable or PATH is not updated immediately, install
+Poppler manually and reopen PowerShell before running PDF commands.
+
+## Windows PowerShell Notes
+
+Run commands from PowerShell or Windows Terminal:
+
+```powershell
+taxhelper --help
+taxhelper init
+taxhelper lookup "field 417"
+taxhelper upgrade
+```
+
+If `taxhelper` is not found immediately after install, close and reopen
+PowerShell so the `pipx` PATH update is loaded. You can also run:
+
+```powershell
+py -3.12 -m pipx ensurepath
+```
+
+Manual Windows install:
+
+```powershell
+py -3.12 -m pip install --user pipx
+py -3.12 -m pipx ensurepath
+pipx install git+https://github.com/rasmusrbj/taxhelper.git
+taxhelper install-skills --force
+taxhelper init
 ```
 
 ## Quick Start
