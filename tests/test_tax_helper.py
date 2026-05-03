@@ -1,10 +1,12 @@
 from __future__ import annotations
 
+import io
 import sqlite3
 import tempfile
 import tomllib
 import unittest
 from contextlib import closing
+from contextlib import redirect_stdout
 from pathlib import Path
 from unittest.mock import patch
 
@@ -44,6 +46,12 @@ class TaxHelperTests(unittest.TestCase):
         args = build_parser().parse_args(["lookup", "field 417", "--db", "tax.sqlite", "--json"])
         self.assertEqual(args.db, Path("tax.sqlite"))
         self.assertTrue(args.json)
+
+    def test_version_flag_exits_cleanly(self) -> None:
+        with self.assertRaises(SystemExit) as raised, redirect_stdout(io.StringIO()) as stdout:
+            build_parser().parse_args(["--version"])
+        self.assertEqual(raised.exception.code, 0)
+        self.assertIn("taxhelper", stdout.getvalue())
 
     def test_template_parser_accepts_agent_filters(self) -> None:
         args = build_parser().parse_args(
@@ -112,6 +120,23 @@ class TaxHelperTests(unittest.TestCase):
         self.assertEqual(args.target, ["codex", "claude"])
         self.assertEqual(args.path, [Path("custom-skills")])
         self.assertTrue(args.force)
+        self.assertTrue(args.json)
+
+    def test_upgrade_parser_accepts_repo_and_flags(self) -> None:
+        args = build_parser().parse_args(
+            [
+                "upgrade",
+                "--repo-url",
+                "https://example.test/taxhelper.git",
+                "--skip-skills",
+                "--dry-run",
+                "--json",
+            ]
+        )
+        self.assertEqual(args.command, "upgrade")
+        self.assertEqual(args.repo_url, "https://example.test/taxhelper.git")
+        self.assertTrue(args.skip_skills)
+        self.assertTrue(args.dry_run)
         self.assertTrue(args.json)
 
     def test_init_parser_defaults_to_bootstrap_with_schema_escape_hatch(self) -> None:

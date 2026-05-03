@@ -13,6 +13,7 @@ tax return, and it should not be treated as tax advice.
 ```bash
 curl -fsSL https://raw.githubusercontent.com/rasmusrbj/taxhelper/main/install.sh | sh
 taxhelper init
+taxhelper --version
 ```
 
 The raw curl installer uses `pipx`, installs Poppler when it can, and
@@ -50,6 +51,12 @@ taxhelper fill-pdf data/example_fill_values.json --output filled-04003.pdf
 taxhelper explain "kan jeg få kørselsfradrag?"
 ```
 
+Upgrade later with:
+
+```bash
+taxhelper upgrade
+```
+
 For local development:
 
 ```bash
@@ -77,9 +84,11 @@ taxhelper lookup "rubrik 51" --json
 ## CLI Commands
 
 ```bash
+taxhelper --version
 taxhelper init
 taxhelper init --offline
 taxhelper init --schema-only
+taxhelper upgrade
 taxhelper seed
 taxhelper scrape-rubrics
 taxhelper search "rejsefradrag rubrik 53"
@@ -217,6 +226,21 @@ taxhelper install-skills --path ~/.agents/skills
 ```
 
 Restart your agent client after installing new skills.
+
+## Upgrade
+
+Use the CLI to upgrade from the public GitHub repository and refresh installed
+Agent Skills:
+
+```bash
+taxhelper upgrade
+```
+
+Preview the commands without running them:
+
+```bash
+taxhelper upgrade --dry-run
+```
 
 ## MCP Server
 

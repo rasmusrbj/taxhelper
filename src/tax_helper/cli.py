@@ -2,8 +2,12 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
+import shlex
+import shutil
 import sqlite3
+import subprocess
 import sys
 from contextlib import closing
 from datetime import date
@@ -56,6 +60,7 @@ from tax_helper.tags import canonical_tag
 
 
 DEFAULT_FILL_PDF_NAME = "04003_januar2026-t.pdf"
+DEFAULT_REPO_URL = "https://github.com/rasmusrbj/taxhelper.git"
 
 
 def default_fill_pdf_path() -> Path:
@@ -291,6 +296,27 @@ def build_parser() -> argparse.ArgumentParser:
     )
     install_skills_parser.set_defaults(func=cmd_install_skills)
 
+    upgrade_parser = add_command(
+        "upgrade",
+        help="Upgrade taxhelper from GitHub and refresh the bundled Agent Skill",
+    )
+    upgrade_parser.add_argument(
+        "--repo-url",
+        default=DEFAULT_REPO_URL,
+        help="Git repository URL used for pipx reinstall",
+    )
+    upgrade_parser.add_argument(
+        "--skip-skills",
+        action="store_true",
+        help="Do not refresh Codex/Claude Code skills after upgrading",
+    )
+    upgrade_parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Print the commands that would run without executing them",
+    )
+    upgrade_parser.set_defaults(func=cmd_upgrade)
+
     stats_parser = add_command("stats", help="Show database coverage and tag statistics")
     stats_parser.set_defaults(func=cmd_stats)
 
@@ -466,6 +492,113 @@ def normalize_skill_targets(raw_targets: list[str] | None) -> tuple[str, ...]:
         if target not in targets:
             targets.append(target)
     return tuple(targets)
+
+
+def cmd_upgrade(args: argparse.Namespace) -> int:
+    pipx_command = resolve_pipx_command()
+    install_command = [*pipx_command, "install", "--force", f"git+{args.repo_url}"]
+    commands = [install_command]
+    if not args.skip_skills:
+        taxhelper_command = resolve_taxhelper_command()
+        if taxhelper_command is not None:
+            commands.append([taxhelper_command, "install-skills", "--force"])
+
+    if args.dry_run:
+        payload = {
+            "ok": True,
+            "dry_run": True,
+            "commands": [format_command(command) for command in commands],
+        }
+        if args.json:
+            print_json(payload)
+        else:
+            for command in commands:
+                print(format_command(command))
+        return 0
+
+    command_results: list[dict[str, Any]] = []
+    for command in commands:
+        result = run_external_command(command, capture_output=args.json)
+        command_results.append(result)
+        if result["returncode"] != 0:
+            payload = {
+                "ok": False,
+                "failed_command": result["command"],
+                "results": command_results,
+            }
+            if args.json:
+                print_json(payload)
+            else:
+                print(f"error: command failed: {result['command']}", file=sys.stderr)
+            return int(result["returncode"])
+
+    skipped_skills = not args.skip_skills and len(commands) == 1
+    payload = {
+        "ok": True,
+        "repo_url": args.repo_url,
+        "results": command_results,
+        "skills_refreshed": not args.skip_skills and not skipped_skills,
+        "skills_skipped_reason": "taxhelper executable not found" if skipped_skills else "",
+    }
+    if args.json:
+        print_json(payload)
+    else:
+        print("taxhelper upgraded.")
+        if args.skip_skills:
+            print("Skipped skill refresh.")
+        elif skipped_skills:
+            print("Could not find taxhelper on PATH to refresh skills.")
+        else:
+            print("Agent Skill refreshed.")
+    return 0
+
+
+def resolve_pipx_command() -> list[str]:
+    pipx_path = shutil.which("pipx")
+    if pipx_path:
+        return [pipx_path]
+    probe = [sys.executable, "-m", "pipx", "--version"]
+    result = subprocess.run(probe, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=False)
+    if result.returncode == 0:
+        return [sys.executable, "-m", "pipx"]
+    raise ValueError("pipx was not found; reinstall with the raw curl installer")
+
+
+def resolve_taxhelper_command() -> str | None:
+    candidates: list[str | None] = [
+        shutil.which("taxhelper"),
+        sys.argv[0] if sys.argv and Path(sys.argv[0]).name.startswith("taxhelper") else None,
+        str(Path(os.environ["PIPX_BIN_DIR"]) / "taxhelper") if os.environ.get("PIPX_BIN_DIR") else None,
+        str(Path.home() / ".local" / "bin" / "taxhelper"),
+    ]
+    for candidate in candidates:
+        if candidate and Path(candidate).expanduser().is_file():
+            return str(Path(candidate).expanduser())
+    return None
+
+
+def run_external_command(command: list[str], *, capture_output: bool) -> dict[str, Any]:
+    if not capture_output:
+        print(f"+ {format_command(command)}")
+    result = subprocess.run(
+        command,
+        stdout=subprocess.PIPE if capture_output else None,
+        stderr=subprocess.PIPE if capture_output else None,
+        text=True,
+        check=False,
+    )
+    payload: dict[str, Any] = {
+        "command": format_command(command),
+        "returncode": result.returncode,
+    }
+    if capture_output:
+        payload["stdout"] = result.stdout
+        payload["stderr"] = result.stderr
+    return payload
+
+
+def format_command(command: list[str]) -> str:
+    return shlex.join(command)
 
 
 def cmd_rebuild_fts(args: argparse.Namespace) -> int:
