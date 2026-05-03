@@ -84,4 +84,7 @@ say "taxhelper installed."
 if ! have taxhelper; then
   say "If taxhelper is not on PATH yet, restart your shell or add ~/.local/bin to PATH."
 fi
-say "Next: taxhelper init"
+say ""
+say "Next:"
+say "  taxhelper init"
+say "  taxhelper lookup 'field 417'"

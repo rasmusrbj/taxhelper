@@ -8,10 +8,24 @@ copy of the official `04.003 Oplysningsskemaet` PDF from JSON values.
 This is a research and lookup tool. It does not file, calculate, or optimize a
 tax return, and it should not be treated as tax advice.
 
-## Quick Start
+## Install
 
-Install Poppler first because the scraper/filler uses `pdftotext`,
-`pdftohtml`, and `pdftocairo`:
+```bash
+curl -fsSL https://raw.githubusercontent.com/rasmusrbj/taxhelper/main/install.sh | sh
+taxhelper init
+```
+
+The installer uses `pipx` and installs Poppler when it can. Poppler provides the
+`pdftotext`, `pdftohtml`, and `pdftocairo` tools used for PDF scraping/filling.
+
+Or install directly with `pipx`:
+
+```bash
+pipx install git+https://github.com/rasmusrbj/taxhelper.git
+taxhelper init
+```
+
+If you install manually, install Poppler first:
 
 ```bash
 brew install poppler
@@ -23,18 +37,13 @@ or on Debian/Ubuntu:
 sudo apt-get install poppler-utils
 ```
 
-Install the CLI:
+## Quick Start
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/rasmusrbj/taxhelper/main/install.sh | sh
-taxhelper init
-```
-
-Or install directly with `pipx`:
-
-```bash
-pipx install git+https://github.com/rasmusrbj/taxhelper.git
-taxhelper init
+taxhelper lookup "field 417"
+taxhelper template --tag befordring
+taxhelper fill-pdf data/example_fill_values.json --output filled-04003.pdf
+taxhelper explain "kan jeg få kørselsfradrag?"
 ```
 
 For local development:
@@ -44,10 +53,6 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -e .
 taxhelper init
-taxhelper lookup "field 417"
-taxhelper template --tag befordring
-taxhelper fill-pdf data/example_fill_values.json --output filled-04003.pdf
-taxhelper explain "kan jeg få kørselsfradrag?"
 ```
 
 `taxhelper init` creates/migrates `tax_rules.sqlite`, uses the bundled official
