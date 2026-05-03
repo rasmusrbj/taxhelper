@@ -1,0 +1,2 @@
+include README.md LICENSE NOTICE CODE_OF_CONDUCT.md SECURITY.md SUPPORT.md DISCLAIMER.md
+recursive-include data *.json *.pdf

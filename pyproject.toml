@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "taxhelper"
+version = "0.1.0"
+description = "SQLite-backed CLI for looking up Danish årsopgørelse rules and source material."
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+authors = [{ name = "taxhelper contributors" }]
+keywords = ["denmark", "tax", "sqlite", "cli", "skat", "aarsopgoerelse"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business :: Financial",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/rasmusrbj/taxhelper"
+Repository = "https://github.com/rasmusrbj/taxhelper"
+
+[project.scripts]
+taxhelper = "tax_helper.cli:main"
+tax-helper = "tax_helper.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"tax_helper.data" = ["*.json", "*.pdf"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]

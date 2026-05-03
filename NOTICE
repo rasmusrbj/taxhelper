@@ -1,0 +1,13 @@
+taxhelper is an independent project and is not affiliated with, endorsed by,
+or operated by Skattestyrelsen.
+
+The code in this repository is licensed under the MIT License.
+
+The bundled PDF at data/04003_januar2026-t.pdf and source material fetched from
+skat.dk/info.skat.dk are official Skattestyrelsen materials. They are included
+or indexed with source URLs for convenience and traceability. Review the
+official source pages for current terms, updates, and legal authority.
+
+This project is a research and lookup tool. It is not tax advice, and generated
+PDFs or worksheets must be reviewed before being submitted through any official
+process.

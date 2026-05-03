@@ -1,0 +1,21 @@
+.venv/
+**/__pycache__/
+*.py[cod]
+*.egg-info/
+**/*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+build/
+dist/
+
+# Generated local databases and outputs.
+tax_rules.sqlite
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+filled-*.pdf
+output-*.pdf
+
+# Keep the official source PDF in data/.
+!data/04003_januar2026-t.pdf

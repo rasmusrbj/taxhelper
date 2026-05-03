@@ -1,0 +1,492 @@
+{
+  "source_documents": [
+    {
+      "url": "https://skat.dk/borger/unge-og-studerende/din-aarsopgoerelse/se-din-aarsopgoerelse",
+      "title": "Se din årsopgørelse",
+      "publisher": "Skattestyrelsen",
+      "retrieved_at": "2026-05-03",
+      "source_type": "guidance",
+      "effective_year": 2025,
+      "body": "Citizen guidance describing the annual tax assessment as the final overview of last year's income, deductions, tax paid, refund, or residual tax. It says the 2025 årsopgørelse is available from 23 March 2026 and that taxpayers must check and correct information."
+    },
+    {
+      "url": "https://info.skat.dk/data.aspx?oid=1922417",
+      "title": "Årsopgørelse/Oplysningsskema",
+      "publisher": "Skattestyrelsen",
+      "retrieved_at": "2026-05-03",
+      "source_type": "legal_guidance",
+      "effective_year": null,
+      "body": "Guidance explaining that the annual statement or information form is based on reported data from employers, banks, mortgage lenders, unions, and unemployment funds. The taxpayer remains responsible for missing or wrong income and deductions."
+    },
+    {
+      "url": "https://skat.dk/borger/aarsopgoerelse/se-og-ret-dine-gamle-aarsopgoerelser",
+      "title": "Se og ret dine gamle årsopgørelser",
+      "publisher": "Skattestyrelsen",
+      "retrieved_at": "2026-05-03",
+      "source_type": "guidance",
+      "effective_year": 2025,
+      "body": "Citizen guidance for correcting older annual tax assessments. The 2025 assessment can be corrected until 1 May 2029, 2024 until 1 May 2028, 2023 until 1 May 2027, and 2022 until 1 May 2026. Later corrections generally require special circumstances and documentation."
+    },
+    {
+      "url": "https://skat.dk/hjaelp/bundskat-mellemskat-topskat-og-toptopskat",
+      "title": "Bundskat, mellemskat, topskat og toptopskat",
+      "publisher": "Skattestyrelsen",
+      "retrieved_at": "2026-05-03",
+      "source_type": "guidance",
+      "effective_year": 2026,
+      "body": "Current 2026 guidance for Danish state income tax layers. It lists bundskat, mellemskat, topskat, and toptopskat with thresholds based on personal income after labour market contribution for higher brackets."
+    },
+    {
+      "url": "https://skat.dk/borger/fradrag/arbejdsrelaterede-fradrag/beskaeftigelses-og-jobfradrag",
+      "title": "Beskæftigelses- og jobfradrag",
+      "publisher": "Skattestyrelsen",
+      "retrieved_at": "2026-05-03",
+      "source_type": "guidance",
+      "effective_year": 2026,
+      "body": "Citizen guidance for employment and job deductions. For 2026 it lists the employment deduction rate and cap, the job deduction rate, threshold and cap, plus special senior and single-parent employment deduction amounts."
+    },
+    {
+      "url": "https://skat.dk/borger/fradrag/koerselsfradrag/koerselsfradrag-befordringsfradrag",
+      "title": "Kørselsfradrag",
+      "publisher": "Skattestyrelsen",
+      "retrieved_at": "2026-05-03",
+      "source_type": "guidance",
+      "effective_year": 2026,
+      "body": "Citizen guidance for commuting deduction. It explains that annual statement rubrik 51 and preliminary assessment field 417 are used, that the taxpayer must enter actual commuting days, and it lists 2026 kilometre rates and exclusions."
+    },
+    {
+      "url": "https://skat.dk/borger/fradrag/arbejdsrelaterede-fradrag/rejsefradrag-godtgoerelse-kost-og-logi/rejsefradrag",
+      "title": "Arbejdsrelaterede rejsefradrag",
+      "publisher": "Skattestyrelsen",
+      "retrieved_at": "2026-05-03",
+      "source_type": "guidance",
+      "effective_year": 2026,
+      "body": "Citizen guidance for work travel deductions. It links annual statement rubrik 53 and preliminary assessment field 429, lists 2026 caps and standard rates, and describes conditions for temporary work location, distance, overnight stay, and employer reimbursement."
+    },
+    {
+      "url": "https://skat.dk/borger/fradrag/servicefradrag/generelle-betingelser",
+      "title": "Generelle betingelser for håndværkerfradrag og servicefradrag",
+      "publisher": "Skattestyrelsen",
+      "retrieved_at": "2026-05-03",
+      "source_type": "guidance",
+      "effective_year": 2026,
+      "body": "Citizen guidance for service and crafts deductions. It states that only labour costs qualify, the person must be at least 18 and tax-liable in Denmark, payment must be digital, and documentation is required."
+    },
+    {
+      "url": "https://skat.dk/borger/pension-og-efterloen/livsvarig-livrente",
+      "title": "Livsvarig livrente",
+      "publisher": "Skattestyrelsen",
+      "retrieved_at": "2026-05-03",
+      "source_type": "guidance",
+      "effective_year": 2026,
+      "body": "Citizen guidance for lifetime annuity pension contributions. It lists the 2026 and 2025 amount that is automatically transferred to the annual tax assessment and says higher payments must be reported by the taxpayer to claim deduction."
+    }
+  ],
+  "rules": [
+    {
+      "id": "aarsopgoerelse-basics",
+      "title": "Årsopgørelsen is the final annual tax result",
+      "category": "årsopgørelse",
+      "tax_year": 2025,
+      "summary": "The annual tax assessment shows last year's income, deductions, paid tax, and whether the taxpayer receives a refund or owes residual tax. Most information is pre-filled, but the taxpayer must check it and correct missing or wrong entries.",
+      "applies_to": "Individuals who receive an annual tax assessment for the previous income year.",
+      "source_url": "https://skat.dk/borger/unge-og-studerende/din-aarsopgoerelse/se-din-aarsopgoerelse",
+      "source_title": "Se din årsopgørelse",
+      "source_publisher": "Skattestyrelsen",
+      "updated_at": "2026-05-03",
+      "caveats": "The tool can help explain fields and rules, but actual changes must be made in TastSelv or through the official process.",
+      "amounts": [],
+      "return_fields": []
+    },
+    {
+      "id": "aarsopgoerelse-correction-deadlines",
+      "title": "Correction deadlines for older årsopgørelser",
+      "category": "årsopgørelse",
+      "tax_year": 2025,
+      "summary": "Older annual tax assessments can usually be corrected in TastSelv until the ordinary deadline. The listed deadlines include 2025 until 1 May 2029, 2024 until 1 May 2028, 2023 until 1 May 2027, and 2022 until 1 May 2026.",
+      "applies_to": "Taxpayers who discover missing income, missing deductions, or wrong amounts in prior-year assessments.",
+      "source_url": "https://skat.dk/borger/aarsopgoerelse/se-og-ret-dine-gamle-aarsopgoerelser",
+      "source_title": "Se og ret dine gamle årsopgørelser",
+      "source_publisher": "Skattestyrelsen",
+      "updated_at": "2026-05-03",
+      "caveats": "After the ordinary deadline, correction generally requires special circumstances and documentation.",
+      "amounts": [],
+      "return_fields": []
+    },
+    {
+      "id": "income-tax-brackets-2026",
+      "title": "State income tax brackets for 2026",
+      "category": "skat",
+      "tax_year": 2026,
+      "summary": "From 2026, Danish state income tax guidance distinguishes bundskat, mellemskat, topskat, and toptopskat. Higher bracket thresholds are based on personal income after labour market contribution.",
+      "applies_to": "Individuals with taxable personal income in Denmark in 2026.",
+      "source_url": "https://skat.dk/hjaelp/bundskat-mellemskat-topskat-og-toptopskat",
+      "source_title": "Bundskat, mellemskat, topskat og toptopskat",
+      "source_publisher": "Skattestyrelsen",
+      "updated_at": "2026-05-03",
+      "caveats": "Municipal tax and church tax are separate. The CLI stores the official guidance thresholds; it does not compute full tax.",
+      "amounts": [
+        {
+          "tax_year": 2026,
+          "label": "Bundskat rate",
+          "value": 12.01,
+          "unit": "percent",
+          "threshold_note": "Applied to personal income above the personal allowance, with positive net capital income included in the base."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Mellemskat rate",
+          "value": 7.5,
+          "unit": "percent",
+          "threshold_note": "Applies above the relevant threshold."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Mellemskat personal income threshold after AM-bidrag",
+          "value": 641200,
+          "unit": "DKK",
+          "threshold_note": "Personal income threshold after labour market contribution."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Mellemskat capital income threshold",
+          "value": 55000,
+          "unit": "DKK",
+          "threshold_note": "Capital income base amount."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Topskat rate",
+          "value": 7.5,
+          "unit": "percent",
+          "threshold_note": "Applies above the topskat threshold."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Topskat personal income threshold after AM-bidrag",
+          "value": 777900,
+          "unit": "DKK",
+          "threshold_note": "Personal income threshold after labour market contribution."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Toptopskat rate",
+          "value": 5,
+          "unit": "percent",
+          "threshold_note": "Applies above the toptopskat threshold."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Toptopskat personal income threshold after AM-bidrag",
+          "value": 2592700,
+          "unit": "DKK",
+          "threshold_note": "Personal income threshold after labour market contribution."
+        }
+      ],
+      "return_fields": []
+    },
+    {
+      "id": "employment-and-job-deductions-2026",
+      "title": "Employment and job deductions for 2026",
+      "category": "fradrag",
+      "tax_year": 2026,
+      "summary": "People with labour-market-contribution liable salary or business surplus receive employment and job deductions automatically. The employment deduction is percentage-based with a cap; the job deduction is calculated on income above a threshold with a cap.",
+      "applies_to": "Taxpayers with AM-bidragspligtig salary or business surplus.",
+      "source_url": "https://skat.dk/borger/fradrag/arbejdsrelaterede-fradrag/beskaeftigelses-og-jobfradrag",
+      "source_title": "Beskæftigelses- og jobfradrag",
+      "source_publisher": "Skattestyrelsen",
+      "updated_at": "2026-05-03",
+      "caveats": "These deductions are normally calculated automatically from reported income.",
+      "amounts": [
+        {
+          "tax_year": 2026,
+          "label": "Beskæftigelsesfradrag rate",
+          "value": 12.75,
+          "unit": "percent",
+          "threshold_note": "Calculated from qualifying income."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Beskæftigelsesfradrag maximum",
+          "value": 63300,
+          "unit": "DKK",
+          "threshold_note": "Maximum deduction."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Jobfradrag rate",
+          "value": 4.5,
+          "unit": "percent",
+          "threshold_note": "Calculated on income above the job deduction threshold."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Jobfradrag income threshold",
+          "value": 235200,
+          "unit": "DKK",
+          "threshold_note": "Income above this amount enters the job deduction calculation."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Jobfradrag maximum",
+          "value": 3100,
+          "unit": "DKK",
+          "threshold_note": "Maximum deduction."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Senior employment deduction rate",
+          "value": 1.4,
+          "unit": "percent",
+          "threshold_note": "For people in employment with 1 or 2 years until state pension age."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Senior employment deduction maximum",
+          "value": 6100,
+          "unit": "DKK",
+          "threshold_note": "Maximum senior employment deduction."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Single-provider extra employment deduction maximum",
+          "value": 50600,
+          "unit": "DKK",
+          "threshold_note": "For qualifying single providers receiving extra child benefit."
+        }
+      ],
+      "return_fields": []
+    },
+    {
+      "id": "commuting-deduction-2026",
+      "title": "Kørselsfradrag / befordringsfradrag for 2026",
+      "category": "fradrag",
+      "tax_year": 2026,
+      "summary": "Commuting deduction is available when daily transport to and from paid work exceeds 24 km in total. On the annual statement it is entered in rubrik 51; on the preliminary assessment it uses field 417. The taxpayer must use actual commuting days and exclude home-working days, holidays, sick days, and similar days.",
+      "applies_to": "Taxpayers with paid work subject to labour market contribution and qualifying commuting distance.",
+      "source_url": "https://skat.dk/borger/fradrag/koerselsfradrag/koerselsfradrag-befordringsfradrag",
+      "source_title": "Kørselsfradrag",
+      "source_publisher": "Skattestyrelsen",
+      "updated_at": "2026-05-03",
+      "caveats": "No deduction if the employer pays transport, if a company car is available, for unpaid internship, or for normal study travel except special 2026 island/outer-municipality cases.",
+      "amounts": [
+        {
+          "tax_year": 2026,
+          "label": "0-24 km per day",
+          "value": 0,
+          "unit": "DKK per km per day",
+          "threshold_note": "No deduction for the first 24 km of daily commuting."
+        },
+        {
+          "tax_year": 2026,
+          "label": "25-120 km per day",
+          "value": 2.28,
+          "unit": "DKK per km per day",
+          "threshold_note": "Ordinary 2026 rate."
+        },
+        {
+          "tax_year": 2026,
+          "label": "25-120 km per day in outer municipalities and certain small islands",
+          "value": 2.53,
+          "unit": "DKK per km per day",
+          "threshold_note": "Special 2026 rate."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Over 120 km per day",
+          "value": 1.14,
+          "unit": "DKK per km per day",
+          "threshold_note": "Ordinary 2026 rate for kilometres over 120."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Storebæltsbroen by car/motorcycle",
+          "value": 110,
+          "unit": "DKK per trip",
+          "threshold_note": "Bridge deduction rate."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Storebæltsbroen by train/public transport",
+          "value": 15,
+          "unit": "DKK per trip",
+          "threshold_note": "Bridge deduction rate."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Øresundsbroen by car/motorcycle",
+          "value": 50,
+          "unit": "DKK per trip",
+          "threshold_note": "Bridge deduction rate."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Øresundsbroen by train/public transport",
+          "value": 8,
+          "unit": "DKK per trip",
+          "threshold_note": "Bridge deduction rate."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Extra commuting deduction maximum",
+          "value": 15400,
+          "unit": "DKK",
+          "threshold_note": "For low incomes; automatic calculation."
+        }
+      ],
+      "return_fields": [
+        {
+          "code": "51",
+          "kind": "rubrik",
+          "tax_form": "aarsopgoerelse",
+          "label": "Kørselsfradrag / befordringsfradrag",
+          "category": "fradrag",
+          "description": "Annual statement field for commuting deduction."
+        },
+        {
+          "code": "417",
+          "kind": "felt",
+          "tax_form": "forskudsopgoerelse",
+          "label": "Kørselsfradrag / befordringsfradrag",
+          "category": "fradrag",
+          "description": "Preliminary assessment field for commuting deduction."
+        }
+      ]
+    },
+    {
+      "id": "travel-deduction-2026",
+      "title": "Work travel deduction for 2026",
+      "category": "fradrag",
+      "tax_year": 2026,
+      "summary": "Work travel deduction can cover food, lodging, and small necessities when the employer does not cover expenses or pays less than the tax-free standard rates. The trip must involve a temporary workplace, sufficient distance from home, at least 24 hours, and overnight stay away from home.",
+      "applies_to": "Employees with qualifying temporary work travel and unreimbursed or under-reimbursed travel costs.",
+      "source_url": "https://skat.dk/borger/fradrag/arbejdsrelaterede-fradrag/rejsefradrag-godtgoerelse-kost-og-logi/rejsefradrag",
+      "source_title": "Arbejdsrelaterede rejsefradrag",
+      "source_publisher": "Skattestyrelsen",
+      "updated_at": "2026-05-03",
+      "caveats": "Special groups cannot use all or part of the deduction. B-income recipients cannot use standard rates and must use documented expenses.",
+      "amounts": [
+        {
+          "tax_year": 2026,
+          "label": "Annual travel deduction cap",
+          "value": 34400,
+          "unit": "DKK",
+          "threshold_note": "Cap when using standard rates; documented-expense rules differ for self-employed people."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Lodging standard rate",
+          "value": 268,
+          "unit": "DKK per full day",
+          "threshold_note": "For full days of travel."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Food and small necessities standard rate",
+          "value": 625,
+          "unit": "DKK per day",
+          "threshold_note": "For employees other than special driver categories."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Tourist driver food rate in Denmark",
+          "value": 75,
+          "unit": "DKK per day",
+          "threshold_note": "Special category."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Tourist driver food rate abroad",
+          "value": 150,
+          "unit": "DKK per day",
+          "threshold_note": "Special category."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Small necessities 25 percent amount",
+          "value": 156.25,
+          "unit": "DKK per day",
+          "threshold_note": "25 percent of the 2026 food standard rate."
+        }
+      ],
+      "return_fields": [
+        {
+          "code": "53",
+          "kind": "rubrik",
+          "tax_form": "aarsopgoerelse",
+          "label": "Rejsefradrag",
+          "category": "fradrag",
+          "description": "Annual statement field for work travel deduction."
+        },
+        {
+          "code": "429",
+          "kind": "felt",
+          "tax_form": "forskudsopgoerelse",
+          "label": "Rejsefradrag",
+          "category": "fradrag",
+          "description": "Preliminary assessment field for work travel deduction."
+        }
+      ]
+    },
+    {
+      "id": "service-and-crafts-deduction-2026",
+      "title": "Servicefradrag and håndværkerfradrag for 2026",
+      "category": "fradrag",
+      "tax_year": 2026,
+      "summary": "Service and crafts deductions are per person and only cover labour costs, not materials. The person must be at least 18 and tax-liable in Denmark, payment must be digital, and documentation must be available.",
+      "applies_to": "Households with qualifying service or crafts labour expenses.",
+      "source_url": "https://skat.dk/borger/fradrag/servicefradrag/generelle-betingelser",
+      "source_title": "Generelle betingelser for håndværkerfradrag og servicefradrag",
+      "source_publisher": "Skattestyrelsen",
+      "updated_at": "2026-05-03",
+      "caveats": "Only certain work qualifies. Check the official list of eligible service and crafts work before entering an amount.",
+      "amounts": [
+        {
+          "tax_year": 2026,
+          "label": "Servicefradrag maximum",
+          "value": 18300,
+          "unit": "DKK per person",
+          "threshold_note": "2026 per-person cap."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Håndværkerfradrag maximum",
+          "value": 9000,
+          "unit": "DKK per person",
+          "threshold_note": "2026 per-person cap."
+        }
+      ],
+      "return_fields": []
+    },
+    {
+      "id": "lifelong-annuity-2026",
+      "title": "Livsvarig livrente contribution deduction for 2026",
+      "category": "pension",
+      "tax_year": 2026,
+      "summary": "Private lifetime annuity contributions up to the annual fill-up deduction amount are automatically transferred to the annual tax assessment. Higher contributions must be reported by the taxpayer to claim the deduction.",
+      "applies_to": "Taxpayers making private contributions to a lifetime annuity pension scheme.",
+      "source_url": "https://skat.dk/borger/pension-og-efterloen/livsvarig-livrente",
+      "source_title": "Livsvarig livrente",
+      "source_publisher": "Skattestyrelsen",
+      "updated_at": "2026-05-03",
+      "caveats": "Deduction treatment above the fill-up amount depends on who pays and timing. Confirm the exact case before acting.",
+      "amounts": [
+        {
+          "tax_year": 2026,
+          "label": "Automatic annual statement transfer threshold",
+          "value": 63200,
+          "unit": "DKK",
+          "threshold_note": "Contributions up to this amount are automatically transferred to the annual statement."
+        },
+        {
+          "tax_year": 2025,
+          "label": "Automatic annual statement transfer threshold",
+          "value": 60300,
+          "unit": "DKK",
+          "threshold_note": "Prior-year reference amount."
+        }
+      ],
+      "return_fields": []
+    }
+  ]
+}
