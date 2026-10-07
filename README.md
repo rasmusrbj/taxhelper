@@ -414,9 +414,18 @@ Prefer official material:
 - `info.skat.dk` for Den juridiske vejledning and formal legal references.
 - `retsinformation.dk` for laws and executive orders when a rule needs legal
   authority beyond guidance.
+- `svmn.dk` (Skatteministeriet) for next year's indexed amounts before
+  Skattestyrelsen publishes its guidance.
 
 For every structured rule, store the source URL and keep amounts year-specific.
 Do not overwrite older years when new rates are published.
+
+2027 amounts are provisional. They come from Skatteministeriet's table of amounts
+indexed under personskattelovens § 20 (svmn.dk), published before Skattestyrelsen's
+2027 guidance, and cover thresholds and caps only: the percentage rates and the
+per-km kørselsfradrag rates for 2027 are not seeded yet. Every 2027 rule's caveats
+start with "Needs refinement" and list what is missing; re-verify them against
+skat.dk once the 2027 guidance is published.
 
 ## Open Source Notes
 
