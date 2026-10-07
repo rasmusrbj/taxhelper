@@ -73,6 +73,15 @@
       "body": "Citizen guidance for service and crafts deductions. It states that only labour costs qualify, the person must be at least 18 and tax-liable in Denmark, payment must be digital, and documentation is required."
     },
     {
+      "url": "https://svmn.dk/tal-og-metode/satser/regulering-af-beloebsgraenser/beloebsgraenser-i-skattelovgivningen-der-reguleres-efter-personskattelovens-20-2026-2027",
+      "title": "Beløbsgrænser i skattelovgivningen der reguleres efter personskattelovens § 20 - 2026-2027",
+      "publisher": "Skatteministeriet",
+      "retrieved_at": "2026-09-25",
+      "source_type": "official_amounts",
+      "effective_year": 2027,
+      "body": "Skatteministeriet's table of amount limits in Danish tax law indexed under personskattelovens § 20, showing 2026 and 2027 values. The 2027 regulation is 2.9 percent (index 137.3 to 141.3); amounts are rounded up to the nearest 100 kr. unless stated otherwise. 2027 values include personfradrag 55.700 kr., mellemskattegrænse 659.900 kr., bundfradrag for positiv nettokapitalindkomst 56.600 kr., topskattegrænse 800.500 kr., toptopskattegrænse 2.668.200 kr., progressionsgrænse for aktieindkomst 89.600 kr., maksimalt beskæftigelsesfradrag 65.200 kr., jobfradrag bundgrænse 242.100 kr. and maksimum 3.200 kr., rejsefradrag loft 35.400 kr., servicefradrag 18.800 kr., grøn istandsættelse 9.200 kr., aktiesparekonto værdigrænse 179.300 kr. and fradrag for gaver til almenvelgørende institutioner 20.500 kr. Percentage rates are not part of the table. The table also lists the 2026 values, including personfradrag 54.100 kr., progressionsgrænse for aktieindkomst 79.400 kr., aktiesparekonto værdigrænse 174.200 kr. and fradrag for gaver til almenvelgørende institutioner 20.000 kr."
+    },
+    {
       "url": "https://skat.dk/borger/pension-og-efterloen/livsvarig-livrente",
       "title": "Livsvarig livrente",
       "publisher": "Skattestyrelsen",
@@ -115,7 +124,7 @@
     },
     {
       "id": "income-tax-brackets-2026",
-      "title": "State income tax brackets for 2026",
+      "title": "State income tax brackets and personfradrag for 2026",
       "category": "skat",
       "tax_year": 2026,
       "summary": "From 2026, Danish state income tax guidance distinguishes bundskat, mellemskat, topskat, and toptopskat. Higher bracket thresholds are based on personal income after labour market contribution.",
@@ -126,6 +135,14 @@
       "updated_at": "2026-05-03",
       "caveats": "Municipal tax and church tax are separate. The CLI stores the official guidance thresholds; it does not compute full tax.",
       "amounts": [
+        {
+          "tax_year": 2026,
+          "label": "Personfradrag",
+          "value": 54100,
+          "unit": "DKK",
+          "threshold_note": "Personal allowance (PSL § 10).",
+          "source_url": "https://svmn.dk/tal-og-metode/satser/regulering-af-beloebsgraenser/beloebsgraenser-i-skattelovgivningen-der-reguleres-efter-personskattelovens-20-2026-2027"
+        },
         {
           "tax_year": 2026,
           "label": "Bundskat rate",
@@ -454,6 +471,304 @@
           "value": 9000,
           "unit": "DKK per person",
           "threshold_note": "2026 per-person cap."
+        }
+      ],
+      "return_fields": []
+    },
+    {
+      "id": "share-income-and-aktiesparekonto-2026",
+      "title": "Aktieindkomst threshold and aktiesparekonto limit for 2026",
+      "category": "skat",
+      "tax_year": 2026,
+      "summary": "2026 progression threshold for aktieindkomst, above which the higher share income rate applies, and the deposit limit for an aktiesparekonto.",
+      "applies_to": "Individuals with share income or an aktiesparekonto in 2026.",
+      "source_url": "https://svmn.dk/tal-og-metode/satser/regulering-af-beloebsgraenser/beloebsgraenser-i-skattelovgivningen-der-reguleres-efter-personskattelovens-20-2026-2027",
+      "source_title": "Beløbsgrænser i skattelovgivningen der reguleres efter personskattelovens § 20 - 2026-2027",
+      "source_publisher": "Skatteministeriet",
+      "updated_at": "2026-10-06",
+      "caveats": "Only the thresholds are seeded, not the share income or aktiesparekonto tax rates. Check how the threshold applies to married couples on skat.dk.",
+      "amounts": [
+        {
+          "tax_year": 2026,
+          "label": "Aktieindkomst progression threshold",
+          "value": 79400,
+          "unit": "DKK",
+          "threshold_note": "Progressionsgrænse for aktieindkomst (PSL § 8 a)."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Aktiesparekonto deposit limit",
+          "value": 174200,
+          "unit": "DKK",
+          "threshold_note": "Værdigrænse for indskud (aktiesparekontoloven § 9)."
+        }
+      ],
+      "return_fields": []
+    },
+    {
+      "id": "charitable-gifts-deduction-2026",
+      "title": "Deduction cap for gifts to charities for 2026",
+      "category": "fradrag",
+      "tax_year": 2026,
+      "summary": "2026 maximum deduction for gifts to approved charitable institutions, under ligningslovens § 8 A.",
+      "applies_to": "Individuals who give to approved charities in 2026.",
+      "source_url": "https://svmn.dk/tal-og-metode/satser/regulering-af-beloebsgraenser/beloebsgraenser-i-skattelovgivningen-der-reguleres-efter-personskattelovens-20-2026-2027",
+      "source_title": "Beløbsgrænser i skattelovgivningen der reguleres efter personskattelovens § 20 - 2026-2027",
+      "source_publisher": "Skatteministeriet",
+      "updated_at": "2026-10-06",
+      "caveats": "Only the cap is seeded; check which recipients qualify on skat.dk.",
+      "amounts": [
+        {
+          "tax_year": 2026,
+          "label": "Charitable gifts deduction maximum",
+          "value": 20000,
+          "unit": "DKK",
+          "threshold_note": "Maks. fradrag for gaver til almenvelgørende institutioner mv. (LL § 8 A)."
+        }
+      ],
+      "return_fields": []
+    },
+    {
+      "id": "income-tax-brackets-2027",
+      "title": "State income tax thresholds and personfradrag for 2027",
+      "category": "skat",
+      "tax_year": 2027,
+      "summary": "2027 thresholds for mellemskat, topskat and toptopskat, the capital income base amount, and the personfradrag, indexed 2.9 percent from 2026 under personskattelovens § 20.",
+      "applies_to": "Individuals with taxable personal income in Denmark in 2027.",
+      "source_url": "https://svmn.dk/tal-og-metode/satser/regulering-af-beloebsgraenser/beloebsgraenser-i-skattelovgivningen-der-reguleres-efter-personskattelovens-20-2026-2027",
+      "source_title": "Beløbsgrænser i skattelovgivningen der reguleres efter personskattelovens § 20 - 2026-2027",
+      "source_publisher": "Skatteministeriet",
+      "updated_at": "2026-09-25",
+      "caveats": "Needs refinement: seeded from Skatteministeriet's PSL § 20 table (published 27 August 2026) before Skattestyrelsen's 2027 guidance exists. Re-verify against skat.dk when the 2027 guidance is published, and add the items listed as missing here. Missing for 2027: the bundskat, mellemskat, topskat and toptopskat rates, which are not in the source table. Do not assume the 2026 rates carry over. Municipal and church tax are separate.",
+      "amounts": [
+        {
+          "tax_year": 2027,
+          "label": "Personfradrag",
+          "value": 55700,
+          "unit": "DKK",
+          "threshold_note": "Personal allowance (PSL § 10)."
+        },
+        {
+          "tax_year": 2027,
+          "label": "Mellemskat personal income threshold after AM-bidrag",
+          "value": 659900,
+          "unit": "DKK",
+          "threshold_note": "Mellemskattegrænse (PSL § 7)."
+        },
+        {
+          "tax_year": 2027,
+          "label": "Mellemskat capital income threshold",
+          "value": 56600,
+          "unit": "DKK",
+          "threshold_note": "Base amount for positive net capital income in the mellemskat base for unmarried people; doubled for married couples (PSL § 7)."
+        },
+        {
+          "tax_year": 2027,
+          "label": "Topskat personal income threshold after AM-bidrag",
+          "value": 800500,
+          "unit": "DKK",
+          "threshold_note": "Topskattegrænse (PSL § 7 a)."
+        },
+        {
+          "tax_year": 2027,
+          "label": "Toptopskat personal income threshold after AM-bidrag",
+          "value": 2668200,
+          "unit": "DKK",
+          "threshold_note": "Toptopskattegrænse (PSL § 8)."
+        }
+      ],
+      "return_fields": []
+    },
+    {
+      "id": "employment-and-job-deductions-2027",
+      "title": "Beskæftigelsesfradrag and jobfradrag amounts for 2027",
+      "category": "fradrag",
+      "tax_year": 2027,
+      "summary": "2027 maximums and thresholds for beskæftigelsesfradrag, the extra deductions for single providers and seniors, and jobfradrag, under ligningslovens §§ 9 J and 9 K.",
+      "applies_to": "Individuals with employment income in 2027.",
+      "source_url": "https://svmn.dk/tal-og-metode/satser/regulering-af-beloebsgraenser/beloebsgraenser-i-skattelovgivningen-der-reguleres-efter-personskattelovens-20-2026-2027",
+      "source_title": "Beløbsgrænser i skattelovgivningen der reguleres efter personskattelovens § 20 - 2026-2027",
+      "source_publisher": "Skatteministeriet",
+      "updated_at": "2026-09-25",
+      "caveats": "Needs refinement: seeded from Skatteministeriet's PSL § 20 table (published 27 August 2026) before Skattestyrelsen's 2027 guidance exists. Re-verify against skat.dk when the 2027 guidance is published, and add the items listed as missing here. Missing for 2027: the beskæftigelsesfradrag, jobfradrag and senior deduction percentage rates, which are not in the source table.",
+      "amounts": [
+        {
+          "tax_year": 2027,
+          "label": "Beskæftigelsesfradrag maximum",
+          "value": 65200,
+          "unit": "DKK",
+          "threshold_note": "Maximum deduction (LL § 9 J)."
+        },
+        {
+          "tax_year": 2027,
+          "label": "Single-provider extra employment deduction maximum",
+          "value": 52000,
+          "unit": "DKK",
+          "threshold_note": "For qualifying single providers (LL § 9 J)."
+        },
+        {
+          "tax_year": 2027,
+          "label": "Senior employment deduction maximum",
+          "value": 6300,
+          "unit": "DKK",
+          "threshold_note": "Extra employment deduction for seniors (LL § 9 J)."
+        },
+        {
+          "tax_year": 2027,
+          "label": "Jobfradrag income threshold",
+          "value": 242100,
+          "unit": "DKK",
+          "threshold_note": "Income above this amount enters the job deduction calculation (LL § 9 K, stk. 1)."
+        },
+        {
+          "tax_year": 2027,
+          "label": "Jobfradrag maximum",
+          "value": 3200,
+          "unit": "DKK",
+          "threshold_note": "Maximum deduction (LL § 9 K, stk. 2)."
+        }
+      ],
+      "return_fields": []
+    },
+    {
+      "id": "commuting-deduction-2027",
+      "title": "Commuting deduction amounts for 2027",
+      "category": "fradrag",
+      "tax_year": 2027,
+      "summary": "2027 income threshold where the extra commuting deduction for low incomes starts to phase out, under ligningslovens § 9 C.",
+      "applies_to": "Individuals who commute between home and work in 2027.",
+      "source_url": "https://svmn.dk/tal-og-metode/satser/regulering-af-beloebsgraenser/beloebsgraenser-i-skattelovgivningen-der-reguleres-efter-personskattelovens-20-2026-2027",
+      "source_title": "Beløbsgrænser i skattelovgivningen der reguleres efter personskattelovens § 20 - 2026-2027",
+      "source_publisher": "Skatteministeriet",
+      "updated_at": "2026-09-25",
+      "caveats": "Needs refinement: seeded from Skatteministeriet's PSL § 20 table (published 27 August 2026) before Skattestyrelsen's 2027 guidance exists. Re-verify against skat.dk when the 2027 guidance is published, and add the items listed as missing here. Missing for 2027: the per-km kørselsfradrag rates, the bridge rates, the maximum extra commuting deduction and the upper income limit. These are not in the source table; the per-km rates are set separately and changed mid-year in 2026.",
+      "amounts": [
+        {
+          "tax_year": 2027,
+          "label": "Extra commuting deduction phase-out start",
+          "value": 351500,
+          "unit": "DKK",
+          "threshold_note": "Income threshold for tillæg til befordringsfradrag (LL § 9 C); income before AM-bidrag."
+        }
+      ],
+      "return_fields": []
+    },
+    {
+      "id": "travel-deduction-2027",
+      "title": "Travel deduction standard rates and cap for 2027",
+      "category": "fradrag",
+      "tax_year": 2027,
+      "summary": "2027 standard rates for food and lodging and the annual cap on the travel deduction, under ligningslovens § 9 A.",
+      "applies_to": "Employees who travel for work and stay away overnight in 2027.",
+      "source_url": "https://svmn.dk/tal-og-metode/satser/regulering-af-beloebsgraenser/beloebsgraenser-i-skattelovgivningen-der-reguleres-efter-personskattelovens-20-2026-2027",
+      "source_title": "Beløbsgrænser i skattelovgivningen der reguleres efter personskattelovens § 20 - 2026-2027",
+      "source_publisher": "Skatteministeriet",
+      "updated_at": "2026-09-25",
+      "caveats": "Needs refinement: seeded from Skatteministeriet's PSL § 20 table (published 27 August 2026) before Skattestyrelsen's 2027 guidance exists. Re-verify against skat.dk when the 2027 guidance is published, and add the items listed as missing here. Missing for 2027: the special food rates for tourist drivers, which are not in the source table.",
+      "amounts": [
+        {
+          "tax_year": 2027,
+          "label": "Annual travel deduction cap",
+          "value": 35400,
+          "unit": "DKK",
+          "threshold_note": "Cap when using standard rates (LL § 9 A, stk. 7)."
+        },
+        {
+          "tax_year": 2027,
+          "label": "Lodging standard rate",
+          "value": 276,
+          "unit": "DKK per full day",
+          "threshold_note": "Logisats (LL § 9 A, stk. 2)."
+        },
+        {
+          "tax_year": 2027,
+          "label": "Food and small necessities standard rate",
+          "value": 643,
+          "unit": "DKK per day",
+          "threshold_note": "Rejsegodtgørelsessats (LL § 9 A, stk. 2)."
+        }
+      ],
+      "return_fields": []
+    },
+    {
+      "id": "service-and-crafts-deduction-2027",
+      "title": "Servicefradrag and håndværkerfradrag caps for 2027",
+      "category": "fradrag",
+      "tax_year": 2027,
+      "summary": "2027 per-person caps for the service deduction and the green renovation (håndværker) deduction, under ligningslovens § 8 V.",
+      "applies_to": "Individuals who buy household services or green renovation work for their home in 2027.",
+      "source_url": "https://svmn.dk/tal-og-metode/satser/regulering-af-beloebsgraenser/beloebsgraenser-i-skattelovgivningen-der-reguleres-efter-personskattelovens-20-2026-2027",
+      "source_title": "Beløbsgrænser i skattelovgivningen der reguleres efter personskattelovens § 20 - 2026-2027",
+      "source_publisher": "Skatteministeriet",
+      "updated_at": "2026-09-25",
+      "caveats": "Needs refinement: seeded from Skatteministeriet's PSL § 20 table (published 27 August 2026) before Skattestyrelsen's 2027 guidance exists. Re-verify against skat.dk when the 2027 guidance is published, and add the items listed as missing here. Check the qualifying-work rules on skat.dk; only the caps are seeded.",
+      "amounts": [
+        {
+          "tax_year": 2027,
+          "label": "Servicefradrag maximum",
+          "value": 18800,
+          "unit": "DKK per person",
+          "threshold_note": "LL § 8 V."
+        },
+        {
+          "tax_year": 2027,
+          "label": "Håndværkerfradrag maximum",
+          "value": 9200,
+          "unit": "DKK per person",
+          "threshold_note": "Maks. fradrag for grøn istandsættelse (LL § 8 V)."
+        }
+      ],
+      "return_fields": []
+    },
+    {
+      "id": "share-income-and-aktiesparekonto-2027",
+      "title": "Aktieindkomst threshold and aktiesparekonto limit for 2027",
+      "category": "skat",
+      "tax_year": 2027,
+      "summary": "2027 progression threshold for aktieindkomst, above which the higher share income rate applies, and the deposit limit for an aktiesparekonto.",
+      "applies_to": "Individuals with share income or an aktiesparekonto in 2027.",
+      "source_url": "https://svmn.dk/tal-og-metode/satser/regulering-af-beloebsgraenser/beloebsgraenser-i-skattelovgivningen-der-reguleres-efter-personskattelovens-20-2026-2027",
+      "source_title": "Beløbsgrænser i skattelovgivningen der reguleres efter personskattelovens § 20 - 2026-2027",
+      "source_publisher": "Skatteministeriet",
+      "updated_at": "2026-09-25",
+      "caveats": "Needs refinement: seeded from Skatteministeriet's PSL § 20 table (published 27 August 2026) before Skattestyrelsen's 2027 guidance exists. Re-verify against skat.dk when the 2027 guidance is published, and add the items listed as missing here. Missing for 2027: the share income tax rates and the aktiesparekonto tax rate, which are not in the source table. Check how the threshold applies to married couples on skat.dk.",
+      "amounts": [
+        {
+          "tax_year": 2027,
+          "label": "Aktieindkomst progression threshold",
+          "value": 89600,
+          "unit": "DKK",
+          "threshold_note": "Progressionsgrænse for aktieindkomst (PSL § 8 a)."
+        },
+        {
+          "tax_year": 2027,
+          "label": "Aktiesparekonto deposit limit",
+          "value": 179300,
+          "unit": "DKK",
+          "threshold_note": "Værdigrænse for indskud (aktiesparekontoloven § 9)."
+        }
+      ],
+      "return_fields": []
+    },
+    {
+      "id": "charitable-gifts-deduction-2027",
+      "title": "Deduction cap for gifts to charities for 2027",
+      "category": "fradrag",
+      "tax_year": 2027,
+      "summary": "2027 maximum deduction for gifts to approved charitable institutions, under ligningslovens § 8 A.",
+      "applies_to": "Individuals who give to approved charities in 2027.",
+      "source_url": "https://svmn.dk/tal-og-metode/satser/regulering-af-beloebsgraenser/beloebsgraenser-i-skattelovgivningen-der-reguleres-efter-personskattelovens-20-2026-2027",
+      "source_title": "Beløbsgrænser i skattelovgivningen der reguleres efter personskattelovens § 20 - 2026-2027",
+      "source_publisher": "Skatteministeriet",
+      "updated_at": "2026-09-25",
+      "caveats": "Needs refinement: seeded from Skatteministeriet's PSL § 20 table (published 27 August 2026) before Skattestyrelsen's 2027 guidance exists. Re-verify against skat.dk when the 2027 guidance is published, and add the items listed as missing here. Only the cap is seeded; check which recipients qualify on skat.dk.",
+      "amounts": [
+        {
+          "tax_year": 2027,
+          "label": "Charitable gifts deduction maximum",
+          "value": 20500,
+          "unit": "DKK",
+          "threshold_note": "Maks. fradrag for gaver til almenvelgørende institutioner mv. (LL § 8 A)."
         }
       ],
       "return_fields": []
