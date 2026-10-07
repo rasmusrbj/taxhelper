@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import io
+import os
 import sqlite3
 import tempfile
 import tomllib
@@ -179,15 +180,34 @@ class TaxHelperTests(unittest.TestCase):
             ):
                 self.assertEqual(default_db_path(), project_db)
 
-    def test_default_db_path_falls_back_to_cwd_database(self) -> None:
+    def test_default_db_path_prefers_cwd_database(self) -> None:
         with tempfile.TemporaryDirectory() as cwd_tmpdir, tempfile.TemporaryDirectory() as project_tmpdir:
             cwd_path = Path(cwd_tmpdir)
             project_path = Path(project_tmpdir)
+            (cwd_path / "tax_rules.sqlite").touch()
+            (project_path / "tax_rules.sqlite").touch()
             with (
                 patch("pathlib.Path.cwd", return_value=cwd_path),
                 patch("tax_helper.db.project_root", return_value=project_path),
             ):
                 self.assertEqual(default_db_path(), cwd_path / "tax_rules.sqlite")
+
+    def test_default_db_path_falls_back_to_user_data_dir(self) -> None:
+        with (
+            tempfile.TemporaryDirectory() as cwd_tmpdir,
+            tempfile.TemporaryDirectory() as project_tmpdir,
+            tempfile.TemporaryDirectory() as data_tmpdir,
+        ):
+            env = {"XDG_DATA_HOME": data_tmpdir, "LOCALAPPDATA": data_tmpdir}
+            with (
+                patch.dict("os.environ", env),
+                patch("pathlib.Path.cwd", return_value=Path(cwd_tmpdir)),
+                patch("tax_helper.db.project_root", return_value=Path(project_tmpdir)),
+            ):
+                os.environ.pop("TAX_HELPER_DB", None)
+                self.assertEqual(
+                    default_db_path(), Path(data_tmpdir) / "taxhelper" / "tax_rules.sqlite"
+                )
 
     def test_default_data_path_falls_back_to_packaged_data(self) -> None:
         with tempfile.TemporaryDirectory() as tmpdir:

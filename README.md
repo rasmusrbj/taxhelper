@@ -132,8 +132,11 @@ PDF, loads bundled seed rules, scrapes rubrikker from the PDF, fetches TastSelv
 rubrik guidance, and rebuilds search/tag indexes. Re-running it is safe;
 existing rubrik data is reused unless `--refresh` is passed.
 
-By default, `taxhelper` uses the local project database at `tax_rules.sqlite`
-when it exists. Override it only when needed with `TAX_HELPER_DB` or `--db`.
+By default, `taxhelper` uses `tax_rules.sqlite` in the current directory or the
+project checkout when one exists there. Otherwise it uses a per-user database at
+`~/.local/share/taxhelper/tax_rules.sqlite` (`$XDG_DATA_HOME/taxhelper` when set,
+`%LOCALAPPDATA%\taxhelper` on Windows), so a pipx/uv install finds the same
+database from any directory. Override it with `TAX_HELPER_DB` or `--db`.
 
 Common flags can be placed before or after the subcommand:
 
