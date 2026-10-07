@@ -55,7 +55,19 @@ def default_db_path() -> Path:
     project_db = project_root() / DEFAULT_DB_NAME
     if project_db.exists():
         return project_db
-    return cwd_db
+    # Installed (pipx/uv) copies have no project directory, so fall back to one per-user
+    # location instead of whichever directory the command happens to run from.
+    return user_data_dir() / DEFAULT_DB_NAME
+
+
+def user_data_dir() -> Path:
+    if os.name == "nt":
+        base = os.environ.get("LOCALAPPDATA")
+        root = Path(base) if base else Path.home() / "AppData" / "Local"
+    else:
+        base = os.environ.get("XDG_DATA_HOME")
+        root = Path(base).expanduser() if base else Path.home() / ".local" / "share"
+    return root / "taxhelper"
 
 
 def default_data_path(filename: str) -> Path:
