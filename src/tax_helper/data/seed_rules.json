@@ -80,6 +80,42 @@
       "source_type": "guidance",
       "effective_year": 2026,
       "body": "Citizen guidance for lifetime annuity pension contributions. It lists the 2026 and 2025 amount that is automatically transferred to the annual tax assessment and says higher payments must be reported by the taxpayer to claim deduction."
+    },
+    {
+      "url": "https://skat.dk/borger/pension-og-efterloen/aldersopsparing-og-aldersforsikring",
+      "title": "Aldersopsparing og aldersforsikring",
+      "publisher": "Skattestyrelsen",
+      "retrieved_at": "2026-10-07",
+      "source_type": "guidance",
+      "effective_year": 2026,
+      "body": "Citizen guidance for aldersopsparing and aldersforsikring. Contributions are not deductible, payouts are tax-free, and the return is taxed at 15,3 % each year. Everyone may pay in the basic amount of 9.900 kr. in 2026 (9.400 kr. in 2025); with at most 7 years to folkepensionsalder the limit is 64.200 kr. in 2026 (61.200 kr. in 2025), unless the saver receives payouts from ratepension, livsvarig pension or indeksordninger. Employer and private contributions share the limit, and contributions above it carry an afgift."
+    },
+    {
+      "url": "https://info.skat.dk/data.aspx?oid=2273726",
+      "title": "C.A.4.3.9 Ekstra pensionsfradrag",
+      "publisher": "Skattestyrelsen",
+      "retrieved_at": "2026-10-07",
+      "source_type": "legal_guidance",
+      "effective_year": 2026,
+      "body": "Den juridiske vejledning on the extra pension deduction, a ligningsmæssigt fradrag available from 2018. In 2026 it is 12 % of the calculation basis, or 32 % from the 15th income year before the year the person reaches folkepensionsalder. The basis is the year's contributions that are deductible under PBL § 18 or exempt under PBL § 19 (employer-administered), capped at 63.900 kr. (2010 level), which is 87.800 kr. in 2026 after PSL § 20 indexation. Group life premiums inside a PBL § 19 scheme are excluded."
+    },
+    {
+      "url": "https://skat.dk/en-us/individuals/deductions-and-allowances/additional-deductions-for-pension-contributions",
+      "title": "Additional deductions for pension contributions",
+      "publisher": "Skattestyrelsen",
+      "retrieved_at": "2026-10-07",
+      "source_type": "guidance",
+      "effective_year": 2025,
+      "body": "English citizen guidance on the extra pension deduction. It is granted automatically when you or your employer pay into a deductible pension scheme, at 12 % (more than 15 years to state pension age) or 32 % (15 years or less) of contributions up to 83.800 kr. in 2025, giving a maximum of 10.056 kr. or 26.816 kr."
+    },
+    {
+      "url": "https://info.skat.dk/data.aspx?oid=2048243",
+      "title": "C.A.10.2.1.3.3 Private ordninger med engangsindskud (kapitalindskud)",
+      "publisher": "Skattestyrelsen",
+      "retrieved_at": "2026-10-07",
+      "source_type": "legal_guidance",
+      "effective_year": 2026,
+      "body": "Den juridiske vejledning on lump-sum contributions to private pension schemes with løbende udbetalinger. The deduction for an engangsindskud is spread evenly over 10 years. If one tenth is below the opfyldningsfradrag, the taxpayer may deduct up to that amount in the year, 63.200 kr. in 2026. Full deduction in the payment year requires an agreement with the pension institution on a contribution period of 10 years or more."
     }
   ],
   "rules": [
@@ -469,7 +505,7 @@
       "source_title": "Livsvarig livrente",
       "source_publisher": "Skattestyrelsen",
       "updated_at": "2026-05-03",
-      "caveats": "Deduction treatment above the fill-up amount depends on who pays and timing. Confirm the exact case before acting.",
+      "caveats": "Above the fill-up amount, a lump sum is deducted one tenth per year over 10 years unless a contribution period of 10 years or more is agreed; see pension-lump-sum-deduction-2026. Confirm the exact case before acting.",
       "amounts": [
         {
           "tax_year": 2026,
@@ -484,6 +520,132 @@
           "value": 60300,
           "unit": "DKK",
           "threshold_note": "Prior-year reference amount."
+        }
+      ],
+      "return_fields": []
+    },
+    {
+      "id": "old-age-savings-2026",
+      "title": "Aldersopsparing contribution limits for 2026",
+      "category": "pension",
+      "tax_year": 2026,
+      "summary": "Contributions to an aldersopsparing are not deductible and payouts are tax-free; the return is taxed at 15.3 percent each year. Everyone may pay in the basic amount, and with at most 7 years to folkepensionsalder the higher amount applies unless the saver receives payouts from deductible pension schemes.",
+      "applies_to": "Individuals paying into a private or employer-administered aldersopsparing in 2026.",
+      "source_url": "https://skat.dk/borger/pension-og-efterloen/aldersopsparing-og-aldersforsikring",
+      "source_title": "Aldersopsparing, aldersforsikring og skat",
+      "source_publisher": "Skattestyrelsen",
+      "updated_at": "2026-10-07",
+      "caveats": "The limits cover employer and private contributions combined. Contributions above the limit carry an afgift: 20 percent with more than 7 years to folkepensionsalder, 40 percent within 7 years when only the basic amount applies, or 4 percent if the excess is moved to a deductible scheme. Confirm the exact case on skat.dk before acting.",
+      "amounts": [
+        {
+          "tax_year": 2026,
+          "label": "Aldersopsparing basic contribution limit",
+          "value": 9900,
+          "unit": "DKK",
+          "threshold_note": "Grundbeløb; applies to everyone, employer and private contributions combined."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Aldersopsparing contribution limit within 7 years of folkepensionsalder",
+          "value": 64200,
+          "unit": "DKK",
+          "threshold_note": "Only with at most 7 years to folkepensionsalder and no payouts from ratepension, livsvarig pension or indeksordninger."
+        },
+        {
+          "tax_year": 2025,
+          "label": "Aldersopsparing basic contribution limit",
+          "value": 9400,
+          "unit": "DKK",
+          "threshold_note": "Prior-year reference amount."
+        },
+        {
+          "tax_year": 2025,
+          "label": "Aldersopsparing contribution limit within 7 years of folkepensionsalder",
+          "value": 61200,
+          "unit": "DKK",
+          "threshold_note": "Prior-year reference amount."
+        }
+      ],
+      "return_fields": []
+    },
+    {
+      "id": "extra-pension-deduction-2026",
+      "title": "Ekstra pensionsfradrag for 2026",
+      "category": "fradrag",
+      "tax_year": 2026,
+      "summary": "An automatic ligningsmæssigt fradrag computed as a percentage of the year's pension contributions, including employer-administered ones: 12 percent with more than 15 years to folkepensionsalder, 32 percent from the 15th income year before it. Only contributions up to the annual maximum calculation basis count.",
+      "applies_to": "Individuals with contributions to pension schemes deductible under PBL § 18 or exempt under PBL § 19.",
+      "source_url": "https://info.skat.dk/data.aspx?oid=2273726",
+      "source_title": "C.A.4.3.9 Ekstra pensionsfradrag",
+      "source_publisher": "Skattestyrelsen",
+      "updated_at": "2026-10-07",
+      "caveats": "The cap covers private and employer contributions combined, so an employer scheme can use it up on its own. Group life premiums are excluded. Aldersopsparing contributions are not deductible and do not count.",
+      "amounts": [
+        {
+          "tax_year": 2026,
+          "label": "Extra pension deduction rate",
+          "value": 12,
+          "unit": "percent",
+          "threshold_note": "More than 15 years to folkepensionsalder."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Extra pension deduction rate near folkepensionsalder",
+          "value": 32,
+          "unit": "percent",
+          "threshold_note": "From the 15th income year before the year of folkepensionsalder."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Extra pension deduction maximum calculation basis",
+          "value": 87800,
+          "unit": "DKK",
+          "threshold_note": "63.900 kr. at 2010 level, indexed under PSL § 20."
+        },
+        {
+          "tax_year": 2025,
+          "label": "Extra pension deduction maximum calculation basis",
+          "value": 83800,
+          "unit": "DKK",
+          "threshold_note": "Prior-year reference amount.",
+          "source_url": "https://skat.dk/en-us/individuals/deductions-and-allowances/additional-deductions-for-pension-contributions"
+        }
+      ],
+      "return_fields": []
+    },
+    {
+      "id": "pension-lump-sum-deduction-2026",
+      "title": "Lump-sum contributions to private pensions with løbende udbetalinger for 2026",
+      "category": "pension",
+      "tax_year": 2026,
+      "summary": "The deduction for an engangsindskud to a private pension with løbende udbetalinger, such as a livsvarig livrente, is spread evenly over 10 years. An opfyldningsfradrag lets the taxpayer deduct up to the annual fill-up amount in the payment year. Full deduction of larger amounts requires an agreed contribution period of at least 10 years.",
+      "applies_to": "Taxpayers making private contributions to pension schemes with løbende udbetalinger.",
+      "source_url": "https://info.skat.dk/data.aspx?oid=2048243",
+      "source_title": "C.A.10.2.1.3.3 Private ordninger med engangsindskud (kapitalindskud)",
+      "source_publisher": "Skattestyrelsen",
+      "updated_at": "2026-10-07",
+      "caveats": "Employer-administered contributions are not affected. Confirm with the pension institution whether a payment is registered as a lump sum or under a løbende agreement.",
+      "amounts": [
+        {
+          "tax_year": 2026,
+          "label": "Lump-sum deduction spreading period",
+          "value": 10,
+          "unit": "years",
+          "threshold_note": "One tenth of the engangsindskud is deducted per year."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Opfyldningsfradrag amount",
+          "value": 63200,
+          "unit": "DKK",
+          "threshold_note": "May be deducted in the payment year even when one tenth is lower."
+        },
+        {
+          "tax_year": 2026,
+          "label": "Minimum agreed contribution period for full annual deduction",
+          "value": 10,
+          "unit": "years",
+          "threshold_note": "Agreement with the pension institution required."
         }
       ],
       "return_fields": []
